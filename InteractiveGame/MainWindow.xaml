@@ -5,8 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InteractiveGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="450" Width="400">
+    <Grid RenderTransformOrigin="0.526,0.496"
+          Background="#40c9d1">
+        <Label Content="Интерактивна познавателна&#xD;&#xA;                     игра"
+               FontSize="25" Foreground="White" FontFamily="Arial"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Top" HorizontalAlignment="Center"
+               Margin="20,10,20,0" VerticalAlignment="Top" Width="350" Height="75"
+        />
+        <Label Content="Вход"
+               FontSize="20" Foreground="White" FontFamily="Arial"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Top" HorizontalAlignment="Center"
+               Margin="30,110,20,0" VerticalAlignment="Top" Width="70" Height="30"
+        />
+        <Label Content="Потребител:"
+               FontSize="15" Foreground="Black" FontFamily="Arial"
+               Margin="50,160,20,0" VerticalAlignment="Top"
+        />
+        <Label Content="Парола:"
+               FontSize="15" Foreground="Black" FontFamily="Arial"
+               Margin="50,210,20,0" VerticalAlignment="Top"
+        />
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="180,160,0,0"
+                 TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"
+        />
+        <PasswordBox HorizontalAlignment="Left" Height="25" Margin="180,210,0,0"
+                 VerticalAlignment="Top" Width="150"
+        />
+        <Button Content="Вход" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="50,250,0,0" Width="120" Height="22"
+                FontSize="15" FontFamily="Arial" Foreground="White" Background="#304f51"
+        />
+        <Button Content="Регистрирай се" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="209,250,0,0" Width="120" Height="22"
+                FontSize="15" FontFamily="Arial" Foreground="Black" Background="White"
+        />
     </Grid>
 </Window>

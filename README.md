@@ -36,11 +36,11 @@
 		2.5.5. is_true;<br/>
 		
 	2.6. user_score:
-		2.6.1. user_id;
+		 2.6.1. user_id;
 		2.6.2. category_id;
 		2.6.3. score;
 	
- 3. Начин на реализация - WPF, Entity Framework за работа с базата, MSSQL (най- вероятно);<br/>
+ 3. Начин на реализация - WPF, Entity Framework за работа с базата, MSSQL;<br/>
  
  4. Прозорци:
 	4.1. start window - Опция за влизане (при админ се отваря админ панела);<br/>
