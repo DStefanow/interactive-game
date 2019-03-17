@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:InteractiveGame"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="400">
-    <Grid RenderTransformOrigin="0.526,0.496"
-          Background="#40c9d1">
+    <Grid Background="#40c9d1">
         <Label Content="Интерактивна познавателна&#xD;&#xA;                     игра"
                FontSize="25" Foreground="White" FontFamily="Arial"
                HorizontalContentAlignment="Center" VerticalContentAlignment="Top" HorizontalAlignment="Center"
