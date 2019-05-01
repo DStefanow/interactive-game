@@ -1,11 +1,11 @@
-﻿<Window x:Class="InteractiveGame.MainWindow"
+﻿<Window x:Class="InteractiveGame.LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InteractiveGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="400">
+        Title="Вход" Height="450" Width="400">
     <Grid Background="#40c9d1">
         <Label Content="Интерактивна познавателна&#xD;&#xA;                     игра"
                FontSize="25" Foreground="White" FontFamily="Arial"
