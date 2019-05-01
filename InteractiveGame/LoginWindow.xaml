@@ -26,18 +26,19 @@
                Margin="50,210,20,0" VerticalAlignment="Top"
         />
         <TextBox HorizontalAlignment="Left" Height="25" Margin="180,160,0,0"
-                 TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"
+                 TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Name="UsernameBox"
         />
         <PasswordBox HorizontalAlignment="Left" Height="25" Margin="180,210,0,0"
-                 VerticalAlignment="Top" Width="150"
+                 VerticalAlignment="Top" Width="150" Name="PasswordBox"
         />
         <Button Content="Вход" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="50,250,0,0" Width="120" Height="22"
-                FontSize="15" FontFamily="Arial" Foreground="White" Background="#304f51"
+                FontSize="15" FontFamily="Arial" Foreground="White" Background="#304f51" Name="LoginButton"
         />
         <Button Content="Регистрирай се" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="209,250,0,0" Width="120" Height="22"
                 FontSize="15" FontFamily="Arial" Foreground="Black" Background="White"
+                Name="RegisterButton" Click="RegisterButton_Click"
         />
     </Grid>
 </Window>
