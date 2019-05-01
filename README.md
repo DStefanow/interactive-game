@@ -6,36 +6,36 @@
 	- Потребителите ще могат да избират различни теми и ще имат определен брой точки накрая;<br/>
 
  2. Database:
-	2.1. user:
+	2.1. user:<br/>
 		2.1.1. id;<br/>
 		2.1.2. username;<br/>
 		2.1.3. password;<br/>
 		2.1.4. full_name;<br/>
 		2.1.5. is_admin;<br/>
 		
-	2.2. category:
+	2.2. category:<br/>
 		2.2.1. id;<br/>
 		2.1.2. category_name;<br/>
 		
-	2.3. topic:
+	2.3. topic:<br/>
 		2.3.1. id;<br/>
 		2.3.2. category_id;<br/>
 		2.3.3. title;<br/>
 		2.3.4. description;<br/>
 		
-	2.4. question:
+	2.4. question:<br/>
 		2.4.1. id;<br/>
 		2.4.2. topic_id;<br/>
 		2.4.3. description;<br/>
 		
-	2.5. answers:
+	2.5. answers:<br/>
 		2.5.1. id;<br/>
 		2.5.2. question_id;<br/>
 		2.5.3. description;<br/>
 		2.5.4. points;<br/>
 		2.5.5. is_true;<br/>
 		
-	2.6. user_score:
+	2.6. user_score:<br/>
 		 2.6.1. user_id;
 		2.6.2. category_id;
 		2.6.3. score;
