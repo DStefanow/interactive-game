@@ -1,0 +1,39 @@
+﻿<Window x:Class="InteractiveGame.CreateTopicWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InteractiveGame"
+        mc:Ignorable="d"
+        Title="Добави тема" Height="600" Width="800">
+    <Grid Background="#40c9d1">
+        <Label Content="Добави тема"
+               FontSize="40" Foreground="White" FontFamily="Arial"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Top" HorizontalAlignment="Center"
+               Margin="20,10,20,0" VerticalAlignment="Top" Width="350" Height="75"
+        />
+        <Label Content="Избери категория:"
+               FontSize="25" Foreground="Black" FontFamily="Arial"
+               Margin="50,100,20,0" VerticalAlignment="Top"
+        />
+        <ComboBox HorizontalAlignment="Left" Height="30" Margin="280,105,0,0" 
+                 VerticalAlignment="Top" Width="300"
+        />
+        <Label Content="Добави текст:"
+               FontSize="25" Foreground="Black" FontFamily="Arial"
+               Margin="50,160,20,0" VerticalAlignment="Top"
+        />
+        <TextBox HorizontalAlignment="Left" Height="240" Width="670" Margin="50,210,0,0"
+                 TextWrapping="Wrap" Text="" VerticalAlignment="Top" Name="TopicText"         
+        />
+        <Button Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="50,480,0,0" Width="120" Height="22" FontSize="15" FontFamily="Arial"
+                Foreground="White" Background="#304f51" Name="BackButton" RenderTransformOrigin="0.525,2.864"
+        />
+        <Button Content="Добави" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="600,480,0,0" Width="120" Height="22"
+                FontSize="15" FontFamily="Arial" Foreground="Black" Background="White"
+                Name="InsertButton"
+        />
+    </Grid>
+</Window>
