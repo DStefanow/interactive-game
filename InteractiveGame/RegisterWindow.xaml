@@ -1,0 +1,42 @@
+﻿<Window x:Class="InteractiveGame.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InteractiveGame"
+        mc:Ignorable="d"
+        Title="Регистрация" Height="450" Width="400">
+    <Grid Background="#40c9d1">
+        <Label Content="Интерактивна познавателна&#xD;&#xA;                     игра"
+               FontSize="25" Foreground="White" FontFamily="Arial"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Top" HorizontalAlignment="Center"
+               Margin="20,10,20,0" VerticalAlignment="Top" Width="350" Height="75"
+        />
+        <Label Content="Потребител:"
+               FontSize="15" Foreground="Black" FontFamily="Arial"
+               Margin="50,160,20,0" VerticalAlignment="Top"
+        />
+        <Label Content="Парола:"
+               FontSize="15" Foreground="Black" FontFamily="Arial"
+               Margin="50,210,20,0" VerticalAlignment="Top"
+        />
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="180,160,0,0"
+                 TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Name="UsernameBox"
+        />
+        <PasswordBox HorizontalAlignment="Left" Height="25" Margin="180,210,0,0"
+                 VerticalAlignment="Top" Width="150" Name="PasswordBox"
+        />
+        <Label Content="Име:"
+               FontSize="15" Foreground="Black" FontFamily="Arial"
+               Margin="50,260,20,0" VerticalAlignment="Top"
+        />
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="180,260,0,0"
+                 TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Name="FullNameBox"
+        />
+        <Button Content="Регистрирай се" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="50,300,0,0" Width="120" Height="22"
+                FontSize="15" FontFamily="Arial" Foreground="White" Background="#304f51"
+                Name="RegisterButton"
+        />
+    </Grid>
+</Window>
