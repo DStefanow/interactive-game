@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InteractiveGame"
         mc:Ignorable="d"
-        Title="Въпроси" Height="600" Width="700">
+        Title="Въпроси" Height="500" Width="700">
     <Grid Background="#40c9d1">
         <Label Content="(( Topic title ))"
                FontSize="25" Foreground="White" FontFamily="Arial"
@@ -17,16 +17,16 @@
                HorizontalContentAlignment="Left" VerticalContentAlignment="Top" HorizontalAlignment="Center"
                Margin="40,80,450,0" VerticalAlignment="Top" Width="200" Height="40" Name="QuestionOneLabel"
         />
-        <RadioButton Name="FirstAnswerOne" Margin="40,120,495,430" Height="25" Width="150">
+        <RadioButton GroupName="FirstAnswer" Name="FirstAnswerOne" Margin="44,120,498,324" Height="25" Width="150">
             ((First answer one))
         </RadioButton>
-        <RadioButton Name="FirstAnswerSecond" Margin="194,120,348,424" Height="25" Width="150">
+        <RadioButton GroupName="FirstAnswer" Name="FirstAnswerSecond" Margin="197,120,345,324" Height="25" Width="150">
             ((Second answer one))
         </RadioButton>
-        <RadioButton Name="FirstAnswerThird" Margin="358,120,184,424" Height="25" Width="150">
+        <RadioButton GroupName="FirstAnswer" Name="FirstAnswerThird" Margin="358,120,184,324" Height="25" Width="150">
             ((Third answer one))
         </RadioButton>
-        <RadioButton Name="FirstAnswerFourth" Margin="508,120,34,424" Height="25" Width="150">
+        <RadioButton GroupName="FirstAnswer" Name="FirstAnswerFourth" Margin="513,120,29,324" Height="25" Width="150">
             ((Fourth answer one))
         </RadioButton>
         <Label Content="(( Question Two ))"
@@ -34,19 +34,19 @@
             HorizontalContentAlignment="Left" VerticalContentAlignment="Top" HorizontalAlignment="Center"
             Margin="40,155,450,0" VerticalAlignment="Top" Width="200" Height="40" Name="QuestionTwoLabel"
         />
-        <RadioButton Name="SecondAnswerOne" Margin="40,193,498,351" Height="25" Width="150" Content="((First answer two))"/>
-        <RadioButton Name="SecondAnswerSecond" Margin="194,193,348,351" Height="25" Width="150" Content="((Second answer two))"/>
-        <RadioButton Name="SecondAnswerThird" Margin="358,193,184,351" Height="25" Width="150" Content="((Third answer two))"/>
-        <RadioButton Name="SecondAnswerFourth" Margin="508,193,34,351" Height="25" Width="150" Content="((Fourth answer two))"/>
+        <RadioButton GroupName="SecondAnswer" Name="SecondAnswerOne" Margin="42,193,500,251" Height="25" Width="150" Content="((First answer two))"/>
+        <RadioButton GroupName="SecondAnswer" Name="SecondAnswerSecond" Margin="197,193,345,251" Height="25" Width="150" Content="((Second answer two))"/>
+        <RadioButton GroupName="SecondAnswer" Name="SecondAnswerThird" Margin="358,193,184,251" Height="25" Width="150" Content="((Third answer two))"/>
+        <RadioButton GroupName="SecondAnswer" Name="SecondAnswerFourth" Margin="508,193,34,251" Height="25" Width="150" Content="((Fourth answer two))"/>
         <Label Content="(( Question Three ))"
             FontSize="15" Foreground="White" FontFamily="Arial"
             HorizontalContentAlignment="Left" VerticalContentAlignment="Top" HorizontalAlignment="Center"
             Margin="40,230,450,0" VerticalAlignment="Top" Width="200" Height="40" Name="QuestionThreeLabel"
         />
-        <RadioButton Name="ThirdAnswerOne" Margin="42,269,500,275" Height="25" Width="150" Content="((First answer three))"/>
-        <RadioButton Name="ThirdAnswerSecond" Margin="194,269,348,275" Height="25" Width="150" Content="((Second answer three))"/>
-        <RadioButton Name="ThirdAnswerThird" Margin="358,269,184,275" Height="25" Width="150" Content="((Third answer three))"/>
-        <RadioButton Name="ThirdAnswerFourth" Margin="508,269,34,275" Height="25" Width="150" Content="((Fourth answer three))"/>
+        <RadioButton GroupName="ThirdAnswer" Name="ThirdAnswerOne" Margin="42,269,500,175" Height="25" Width="150" Content="((First answer three))"/>
+        <RadioButton GroupName="ThirdAnswer" Name="ThirdAnswerSecond" Margin="197,269,345,175" Height="25" Width="150" Content="((Second answer three))"/>
+        <RadioButton GroupName="ThirdAnswer" Name="ThirdAnswerThird" Margin="358,269,184,175" Height="25" Width="150" Content="((Third answer three))"/>
+        <RadioButton GroupName="ThirdAnswer" Name="ThirdAnswerFourth" Margin="508,269,34,175" Height="25" Width="150" Content="((Fourth answer three))"/>
         <Label Content="(( Question Three ))"
             FontSize="15" Foreground="White" FontFamily="Arial"
             HorizontalContentAlignment="Left" VerticalContentAlignment="Top" HorizontalAlignment="Center"
