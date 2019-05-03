@@ -5,21 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InteractiveGame"
         mc:Ignorable="d"
-        Title="UserPanel" Height="450" Width="400">
+        Title="Потребителски панел" Height="600" Width="500">
     <Grid Background="#40c9d1">
-        <Label Content="Потребителски профил" HorizontalAlignment="Left" Margin="130,27,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,0.231"/>
-        <Label Content="Потребител:" HorizontalAlignment="Left" Margin="19,79,0,0" VerticalAlignment="Top"/>
-        <Label Content="{}{{ User.Username }}" HorizontalAlignment="Left" Margin="97,79,0,0" VerticalAlignment="Top"/>
-        <Label Content="Име:" HorizontalAlignment="Left" Margin="214,79,0,0" VerticalAlignment="Top"/>
-        <Label Content="{}{{ User.Password }}" HorizontalAlignment="Left" Margin="255,79,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="116,145,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="116,176,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Смяна на парола" HorizontalAlignment="Left" Margin="146,110,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.639,1.385"/>
-        <Label Content="Стара парола:" HorizontalAlignment="Left" Margin="24,142,0,0" VerticalAlignment="Top"/>
-        <Label Content="Нова парола:" HorizontalAlignment="Left" Margin="24,173,0,0" VerticalAlignment="Top"/>
-        <Button Content="Промени" HorizontalAlignment="Left" Margin="255,179,0,0" VerticalAlignment="Top" Width="75"/>
-        <Label Content="Текущ резултат:" HorizontalAlignment="Left" Margin="146,215,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.639,1.385"/>
-        <Button Content="Изход" HorizontalAlignment="Left" Margin="296,377,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Към категория" HorizontalAlignment="Left" Margin="19,377,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Потребителски Панел"
+               FontSize="30" Foreground="White" FontFamily="Arial"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Top" HorizontalAlignment="Center"
+               Margin="20,10,20,0" VerticalAlignment="Top" Width="350" Height="75"
+        />
+        <Label Content="(( Username ))"
+               FontSize="15" Foreground="White" FontFamily="Arial"
+               HorizontalContentAlignment="Left" VerticalContentAlignment="Top" HorizontalAlignment="Center"
+               Margin="20,85,270,0" VerticalAlignment="Top" Width="200" Height="30" Name="UsernameLabel"
+        />
+        <Label Content="(( Full Name ))"
+               FontSize="15" Foreground="Black" FontFamily="Arial"
+               HorizontalContentAlignment="Left" VerticalContentAlignment="Top" HorizontalAlignment="Center"
+               Margin="225,85,70,0" VerticalAlignment="Top" Width="200" Height="30" Name="FullNameLabel"
+        />
+        <Label Content="Избери категория:"
+               FontSize="15" Foreground="Black" FontFamily="Arial"
+               HorizontalContentAlignment="Left" VerticalContentAlignment="Top" HorizontalAlignment="Center"
+               Margin="20,140,270,0" VerticalAlignment="Top" Width="200" Height="30"
+        />
+        <ComboBox HorizontalAlignment="Left" Height="30" Margin="160,140,0,0" 
+                 VerticalAlignment="Top" Width="240" Name="CategoryBox"
+        />
+        <Label Content="Избери тема:"
+            FontSize="15" Foreground="Black" FontFamily="Arial"
+            HorizontalContentAlignment="Left" VerticalContentAlignment="Top" HorizontalAlignment="Center"
+            Margin="20,190,270,0" VerticalAlignment="Top" Width="200" Height="30"
+        />
+        <ComboBox HorizontalAlignment="Left" Height="30" Margin="125,190,0,0" 
+            VerticalAlignment="Top" Width="275" Name="TopicBox"
+        />
+        <Label Content="Общо точки по категории:"
+            FontSize="15" Foreground="Black" FontFamily="Arial"
+            HorizontalContentAlignment="Left" VerticalContentAlignment="Top" HorizontalAlignment="Center"
+            Margin="20,250,270,0" VerticalAlignment="Top" Width="200" Height="30"
+        />
+        <ListBox HorizontalAlignment="Left" Height="180" Margin="20,280,0,0"
+                 VerticalAlignment="Top" Width="300" Name="PointOnCategory"
+         />
+        <Button Content="Изход" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="21,500,0,0" Width="120" Height="22"
+                FontSize="15" FontFamily="Arial" Foreground="White" Background="#304f51" Name="ExitButton"
+        />
+        <Button Content="Започни тема" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="280,500,0,0" Width="120" Height="22"
+                FontSize="15" FontFamily="Arial" Foreground="Black" Background="White"
+                Name="StartTopicButton"
+        />
     </Grid>
 </Window>
