@@ -66,6 +66,9 @@
     <Compile Include="CreateTopicWindow.xaml.cs">
       <DependentUpon>CreateTopicWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="QAWindow.xaml.cs">
+      <DependentUpon>QAWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
@@ -103,6 +106,10 @@
       <DependentUpon>LoginWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="QAWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RegisterWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
