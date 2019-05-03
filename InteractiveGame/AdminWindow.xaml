@@ -1,0 +1,42 @@
+﻿<Window x:Class="InteractiveGame.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InteractiveGame"
+        mc:Ignorable="d"
+        Title="Админ Панел" Height="450" Width="600">
+    <Grid Background="#40c9d1">
+        <Label Content="Админ Панел"
+               FontSize="40" Foreground="White" FontFamily="Arial"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Top" HorizontalAlignment="Center"
+               Margin="20,10,20,0" VerticalAlignment="Top" Width="350" Height="75"
+        />
+        <Button Content="Добави категория" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="225,90,0,0" Width="175" Height="45"
+                FontSize="15" FontFamily="Arial" Foreground="Black" Background="White"
+                Name="InsertCategoryButton"
+        />
+        <Button Content="Добави тема" HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="225,155,0,0" Width="175" Height="45"
+            FontSize="15" FontFamily="Arial" Foreground="White" Background="#4e535b"
+            Name="InsertTopicButton"
+        />
+        <Button Content="Добави QA" HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="225,220,0,0" Width="175" Height="45"
+            FontSize="15" FontFamily="Arial" Foreground="White" Background="#304f51"
+            Name="InsertQAButton"
+        />
+        <Label Content="Изтрий потребител:"
+               FontSize="25" Foreground="Black" FontFamily="Arial"
+               Margin="35,300,40,0" VerticalAlignment="Top"
+        />
+        <ComboBox HorizontalAlignment="Left" Height="30" Margin="290,305,0,0" 
+                 VerticalAlignment="Top" Width="200" Name="CategoryBox"
+        />
+        <Button Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="35,363,0,0" Width="120" Height="22" FontSize="15" FontFamily="Arial"
+                Foreground="White" Background="#304f51" Name="BackButton" RenderTransformOrigin="0.525,2.864"
+        />
+    </Grid>
+</Window>
