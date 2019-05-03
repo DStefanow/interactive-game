@@ -30,12 +30,22 @@
                FontSize="25" Foreground="Black" FontFamily="Arial"
                Margin="50,190,20,0" VerticalAlignment="Top"
         />
+        <Label Content="Точки (1):"
+            FontSize="18" Foreground="Black" FontFamily="Arial"
+            Margin="482,234,221,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
+        />
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top"
+                  Margin="576,238,0,0" Width="120" Name="FirstPoints">
+            <ComboBoxItem>1</ComboBoxItem>
+            <ComboBoxItem>2</ComboBoxItem>
+            <ComboBoxItem>3</ComboBoxItem>
+        </ComboBox>
         <TextBox Height="30" Margin="0,195,130,0" 
             VerticalAlignment="Top" Name="FirstQuestion" HorizontalAlignment="Right" Width="476"
         />
         <Label Content="1. Отговори:"
                FontSize="25" Foreground="Black" FontFamily="Arial"
-               Margin="305,230,335,0" VerticalAlignment="Top"
+               Margin="50,229,590,0" VerticalAlignment="Top" RenderTransformOrigin="-0.039,0.513"
         />
         <TextBox HorizontalAlignment="Left" Height="30" Margin="40,275,0,0" 
             VerticalAlignment="Top" Width="120" Name="FirstCorrect"
@@ -60,9 +70,19 @@
         <TextBox Height="30" Margin="0,350,130,0" 
             VerticalAlignment="Top" Name="SecondQuestion" HorizontalAlignment="Right" Width="476"
         />
+        <Label Content="Точки (2):"
+            FontSize="18" Foreground="Black" FontFamily="Arial"
+            Margin="477,385,226,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
+        />
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="571,389,0,0" Width="120" Name="SecondPoints_">
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+        </ComboBox>
         <Label Content="2. Отговори:"
             FontSize="25" Foreground="Black" FontFamily="Arial"
-            Margin="305,385,335,0" VerticalAlignment="Top"
+            Margin="50,384,590,0" VerticalAlignment="Top"
         />
         <TextBox HorizontalAlignment="Left" Height="30" Margin="35,425,0,0" 
             VerticalAlignment="Top" Width="120" Name="SecondCorrect"
@@ -87,9 +107,19 @@
         <TextBox Height="30" Margin="0,490,130,0" 
             VerticalAlignment="Top" Name="ThirdQuestion" HorizontalAlignment="Right" Width="476"
         />
+        <Label Content="Точки (3):"
+            FontSize="18" Foreground="Black" FontFamily="Arial"
+            Margin="477,525,226,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
+        />
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="571,529,0,0" Width="120" Name="ThirdPoints">
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+        </ComboBox>
         <Label Content="3. Отговори:"
             FontSize="25" Foreground="Black" FontFamily="Arial"
-            Margin="305,525,335,0" VerticalAlignment="Top"
+            Margin="50,520,590,0" VerticalAlignment="Top"
         />
         <TextBox HorizontalAlignment="Left" Height="30" Margin="35,565,0,0" 
             VerticalAlignment="Top" Width="120" Name="ThirdCorrect"
@@ -120,6 +150,16 @@
         <TextBox Height="30" Margin="0,700,311,0" 
             VerticalAlignment="Top" Name="FourthAnswer" HorizontalAlignment="Right" Width="172"
         />
+        <Label Content="Точки (4):"
+            FontSize="18" Foreground="Black" FontFamily="Arial"
+            Margin="482,700,221,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
+        />
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="576,704,0,0" Width="120" x:Name="FourthPoints">
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+        </ComboBox>
         <Button Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="80,770,0,0" Width="120" Height="30" FontSize="20" FontFamily="Arial"
                 Foreground="White" Background="#304f51" Name="BackButton" RenderTransformOrigin="0.525,2.864"
