@@ -54,8 +54,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CreateCategoryPage.xaml.cs">
-      <DependentUpon>CreateCategoryPage.xaml</DependentUpon>
+    <Compile Include="CreateCategoryWindow.xaml.cs">
+      <DependentUpon>CreateCategoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateQAWindow.xaml.cs">
+      <DependentUpon>CreateQAWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="CreateTopicWindow.xaml.cs">
       <DependentUpon>CreateTopicWindow.xaml</DependentUpon>
@@ -66,7 +69,11 @@
     <Compile Include="UserPanel.xaml.cs">
       <DependentUpon>UserPanel.xaml</DependentUpon>
     </Compile>
-    <Page Include="CreateCategoryPage.xaml">
+    <Page Include="CreateCategoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateQAWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

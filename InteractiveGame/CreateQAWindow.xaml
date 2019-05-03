@@ -1,0 +1,124 @@
+﻿<Window x:Class="InteractiveGame.CreateQAWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InteractiveGame"
+        mc:Ignorable="d"
+        Title="Добави Въпроси и Отговори" Height="800" Width="800">
+    <Grid Background="#40c9d1">
+        <Label Content="Добави въпроси и отговори"
+               FontSize="40" Foreground="White" FontFamily="Arial"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Top" HorizontalAlignment="Center"
+               Margin="130,10,145,0" VerticalAlignment="Top" Width="517" Height="75"
+        />
+        <Label Content="Избери категория:"
+               FontSize="25" Foreground="Black" FontFamily="Arial"
+               Margin="50,105,20,0" VerticalAlignment="Top"
+        />
+        <ComboBox HorizontalAlignment="Left" Height="30" Margin="280,110,0,0" 
+                 VerticalAlignment="Top" Width="380" Name="CategoryBox"
+        />
+        <Label Content="Избери тема:"
+               FontSize="25" Foreground="Black" FontFamily="Arial"
+               Margin="50,145,20,0" VerticalAlignment="Top"
+        />
+        <ComboBox HorizontalAlignment="Left" Height="30" Margin="280,150,0,0" 
+                 VerticalAlignment="Top" Width="380" Name="TopicBox"
+        />
+        <Label Content="1. Въпрос:"
+               FontSize="25" Foreground="Black" FontFamily="Arial"
+               Margin="50,190,20,0" VerticalAlignment="Top"
+        />
+        <TextBox Height="30" Margin="0,195,130,0" 
+            VerticalAlignment="Top" Name="FirstQuestion" HorizontalAlignment="Right" Width="476"
+        />
+        <Label Content="1. Отговори:"
+               FontSize="25" Foreground="Black" FontFamily="Arial"
+               Margin="305,230,335,0" VerticalAlignment="Top"
+        />
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="40,275,0,0" 
+            VerticalAlignment="Top" Width="120" Name="FirstCorrect"
+        />
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="220,275,0,0" 
+            VerticalAlignment="Top" Width="120" Name="FirstWrongOne"
+        />
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="398,275,0,0" 
+            VerticalAlignment="Top" Width="120" Name="FirstWrongTwo"
+        />
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="576,275,0,0" 
+            VerticalAlignment="Top" Width="120" Name="FirstWrongThree"
+        />
+        <Label Content="(Правилен)"
+            FontSize="18" Foreground="Black" FontFamily="Arial"
+            Margin="40,455,645,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
+        />
+        <Label Content="2. Въпрос:"
+            FontSize="25" Foreground="Black" FontFamily="Arial"
+            Margin="50,345,20,0" VerticalAlignment="Top"
+        />
+        <TextBox Height="30" Margin="0,350,130,0" 
+            VerticalAlignment="Top" Name="SecondQuestion" HorizontalAlignment="Right" Width="476"
+        />
+        <Label Content="2. Отговори:"
+            FontSize="25" Foreground="Black" FontFamily="Arial"
+            Margin="305,385,335,0" VerticalAlignment="Top"
+        />
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="35,425,0,0" 
+            VerticalAlignment="Top" Width="120" Name="SecondCorrect"
+        />
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="215,425,0,0" 
+            VerticalAlignment="Top" Width="120" Name="SecondWrongOne"
+        />
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="393,425,0,0" 
+            VerticalAlignment="Top" Width="120" Name="SecondWrongTwo"
+        />
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="571,425,0,0" 
+            VerticalAlignment="Top" Width="120" Name="SecondWrongThree"
+        />
+        <Label Content="(Правилен)"
+            FontSize="18" Foreground="Black" FontFamily="Arial"
+            Margin="40,310,645,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
+        />
+        <Label Content="3. Въпрос:"
+            FontSize="25" Foreground="Black" FontFamily="Arial"
+            Margin="50,485,20,0" VerticalAlignment="Top"
+        />
+        <TextBox Height="30" Margin="0,490,130,0" 
+            VerticalAlignment="Top" Name="ThirdQuestion" HorizontalAlignment="Right" Width="476"
+        />
+        <Label Content="3. Отговори:"
+            FontSize="25" Foreground="Black" FontFamily="Arial"
+            Margin="305,525,335,0" VerticalAlignment="Top"
+        />
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="35,565,0,0" 
+            VerticalAlignment="Top" Width="120" Name="ThirdCorrect"
+        />
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="215,565,0,0" 
+            VerticalAlignment="Top" Width="120" Name="ThirdtWrongOne"
+        />
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="393,565,0,0" 
+            VerticalAlignment="Top" Width="120" Name="ThirdWrongTwo"
+        />
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="571,565,0,0" 
+            VerticalAlignment="Top" Width="120" Name="ThirdWrongThree"
+        />
+        <Label Content="(Правилен)"
+            FontSize="18" Foreground="Black" FontFamily="Arial"
+            Margin="40,595,645,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
+        />
+        <Label Content="4. Въпрос:"
+            FontSize="25" Foreground="Black" FontFamily="Arial"
+            Margin="50,647,20,0" VerticalAlignment="Top"
+        />
+        <TextBox Height="30" Margin="0,652,130,0" 
+            VerticalAlignment="Top" Name="FourthQuestion" HorizontalAlignment="Right" Width="476"
+        />
+        <Label Content="4. Отговор (отворен):" FontSize="25" Foreground="Black" FontFamily="Arial"
+            Margin="50,694,488,0" VerticalAlignment="Top"
+        />
+        <TextBox Height="30" Margin="0,700,311,0" 
+            VerticalAlignment="Top" Name="FourthAnswer" HorizontalAlignment="Right" Width="172"
+        />
+    </Grid>
+</Window>

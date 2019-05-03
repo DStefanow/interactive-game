@@ -17,7 +17,7 @@
                Margin="50,100,20,0" VerticalAlignment="Top"
         />
         <ComboBox HorizontalAlignment="Left" Height="30" Margin="280,105,0,0" 
-                 VerticalAlignment="Top" Width="300"
+                 VerticalAlignment="Top" Width="300" Name="CategoryBox"
         />
         <Label Content="Добави текст:"
                FontSize="25" Foreground="Black" FontFamily="Arial"
