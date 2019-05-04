@@ -34,9 +34,14 @@
                  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Name="FullNameBox"
         />
         <Button Content="Регистрирай се" HorizontalAlignment="Left" VerticalAlignment="Top"
-                Margin="50,300,0,0" Width="120" Height="22"
+                Margin="210,304,0,0" Width="120" Height="22"
                 FontSize="15" FontFamily="Arial" Foreground="White" Background="#304f51"
-                Name="RegisterButton"
+                Name="RegisterButton" Click="RegisterClickEvent"
+        />
+        <Button Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="40,304,0,0" Width="120" Height="22"
+                FontSize="15" FontFamily="Arial" Foreground="Black" Background="White"
+                Name="BackButton" Click="BackClickEvent"
         />
     </Grid>
 </Window>

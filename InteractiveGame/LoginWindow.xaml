@@ -32,13 +32,14 @@
                  VerticalAlignment="Top" Width="150" Name="PasswordBox"
         />
         <Button Content="Вход" HorizontalAlignment="Left" VerticalAlignment="Top"
-                Margin="50,250,0,0" Width="120" Height="22"
-                FontSize="15" FontFamily="Arial" Foreground="White" Background="#304f51" Name="LoginButton"
+                Margin="50,250,0,0" Click="LoginClickEvent" Name="LoginButton"
+                FontSize="15" FontFamily="Arial" Foreground="White" Background="#304f51"
+                Width="120" Height="22"
         />
         <Button Content="Регистрирай се" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="209,250,0,0" Width="120" Height="22"
                 FontSize="15" FontFamily="Arial" Foreground="Black" Background="White"
-                Name="RegisterButton" Click="RegisterButton_Click"
+                Name="RegisterButton" Click="RegisterClickEvent"
         />
     </Grid>
 </Window>
