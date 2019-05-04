@@ -7,25 +7,25 @@ namespace InteractiveGame
     using System.Data.Entity.Spatial;
 
     [Table("question")]
-    public partial class question
+    public partial class Question
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public question()
+        public Question()
         {
-            answer = new HashSet<answer>();
+            Answer = new HashSet<Answer>();
         }
 
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        public int topic_id { get; set; }
+        public int TopicId { get; set; }
 
         [Column(TypeName = "ntext")]
         [Required]
-        public string description { get; set; }
+        public string Description { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<answer> answer { get; set; }
+        public virtual ICollection<Answer> Answer { get; set; }
 
-        public virtual topic topic { get; set; }
+        public virtual Topic Topic { get; set; }
     }
 }

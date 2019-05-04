@@ -6,30 +6,31 @@ namespace InteractiveGame
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("topic")]
-    public partial class topic
+    public partial class GameUser
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public topic()
+        public GameUser()
         {
-            question = new HashSet<question>();
+            UserScore = new HashSet<UserScore>();
         }
 
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        public int category_id { get; set; }
+        [Required]
+        [StringLength(16)]
+        public string Username { get; set; }
+
+        [Required]
+        [StringLength(256)]
+        public string Password { get; set; }
 
         [Required]
         [StringLength(64)]
-        public string title { get; set; }
+        public string FullName { get; set; }
 
-        [Column(TypeName = "ntext")]
-        [Required]
-        public string description { get; set; }
-
-        public virtual category category { get; set; }
+        public bool? IsAdmin { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<question> question { get; set; }
+        public virtual ICollection<UserScore> UserScore { get; set; }
     }
 }

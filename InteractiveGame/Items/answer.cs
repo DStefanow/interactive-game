@@ -7,20 +7,20 @@ namespace InteractiveGame
     using System.Data.Entity.Spatial;
 
     [Table("answer")]
-    public partial class answer
+    public partial class Answer
     {
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        public int question_id { get; set; }
+        public int QuestionId { get; set; }
 
         [Required]
         [StringLength(256)]
-        public string description { get; set; }
+        public string Description { get; set; }
 
-        public int points { get; set; }
+        public int Points { get; set; }
 
-        public bool? is_true { get; set; }
+        public bool? IsTrue { get; set; }
 
-        public virtual question question { get; set; }
+        public virtual Question Question { get; set; }
     }
 }
