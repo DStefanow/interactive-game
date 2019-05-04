@@ -12,15 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using InteractiveGame.Items;
 
 namespace InteractiveGame
 {
     public partial class LoginWindow : Window
     {
-        // TODO: Temporary list for register users
-        List<User> users = new List<User>();
-
         public LoginWindow()
         {
             InitializeComponent();
