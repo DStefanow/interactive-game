@@ -66,6 +66,7 @@
     <Compile Include="CreateTopicWindow.xaml.cs">
       <DependentUpon>CreateTopicWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Items\User.cs" />
     <Compile Include="QAWindow.xaml.cs">
       <DependentUpon>QAWindow.xaml</DependentUpon>
     </Compile>
