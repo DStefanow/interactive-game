@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,30 @@ namespace InteractiveGame
 
         private void LoginClickEvent(object sender, RoutedEventArgs e)
         {
-            // TODO ...
+            string username = UsernameBox.Text;
+            string password = PasswordBox.Password;
+
+            GameUser user = GetUser(username, password);
+
+            if (!IsUserValid(user, password))
+            {
+                return;
+            }
+
+            bool isAdmin = user.IsAdmin ?? false;
+
+            if (isAdmin)
+            {
+                AdminWindow admWindow = new AdminWindow();
+                this.Close();
+                admWindow.Show();
+            }
+            else
+            {
+                UserWindow userWindow = new UserWindow();
+                this.Close();
+                userWindow.Show();
+            }
         }
 
         private void RegisterClickEvent(object sender, RoutedEventArgs e)
@@ -32,6 +56,35 @@ namespace InteractiveGame
             RegisterWindow regWindow = new RegisterWindow();
             this.Close();
             regWindow.Show();
+        }
+
+        public bool IsUserValid(GameUser user, string password)
+        {
+            if (user == null)
+            {
+                MessageBox.Show("Не същестува такъв потребител!");
+                return false;
+            }
+
+            if (user.Password != password)
+            {
+                MessageBox.Show("Грешна парола!");
+                return false;
+            }
+
+            return true;
+        }
+        
+        public GameUser GetUser(string username, string password)
+        {
+            try
+            {
+                return App.DbManager.GameUser.FirstOrDefault(u => u.Username == username);
+            }
+            catch (DbException)
+            {
+                return null;
+            }
         }
     }
 }

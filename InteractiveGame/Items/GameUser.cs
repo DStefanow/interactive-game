@@ -5,6 +5,7 @@ namespace InteractiveGame
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Linq;
 
     [Table("game_user")]
     public partial class GameUser
@@ -17,6 +18,10 @@ namespace InteractiveGame
             this.FullName = fullName;
 
             UserScore = new HashSet<UserScore>();
+        }
+
+        public GameUser()
+        {
         }
 
         public int Id { get; set; }

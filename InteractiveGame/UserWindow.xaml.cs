@@ -17,9 +17,9 @@ namespace InteractiveGame
     /// <summary>
     /// Interaction logic for UserPanel.xaml
     /// </summary>
-    public partial class UserPanel : Window
+    public partial class UserWindow : Window
     {
-        public UserPanel()
+        public UserWindow()
         {
             InitializeComponent();
         }
