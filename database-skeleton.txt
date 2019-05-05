@@ -4,7 +4,7 @@ USE interactive_game;
 
 CREATE TABLE game_user (
 	id INT PRIMARY KEY NOT NULL IDENTITY(1,1),
-	username varchar(16) NOT NULL,
+	username varchar(16) NOT NULL UNIQUE,
 	password varchar(256) NOT NULL,
 	full_name nvarchar(64) NOT NULL,
 	is_admin bit
