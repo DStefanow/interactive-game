@@ -19,9 +19,7 @@ namespace InteractiveGame
 
         private void BackClickEvent(object sender, RoutedEventArgs e)
         {
-            LoginWindow logWindow = new LoginWindow();
-            this.Close();
-            logWindow.Show();
+            NavigateToLoginWindow();
         }
 
         private void RegisterClickEvent(object sender, RoutedEventArgs e)
@@ -37,26 +35,22 @@ namespace InteractiveGame
 
             GameUser newUser = new GameUser(username, password, fullName);
             App.DbManager.GameUser.Add(newUser);
-            
-            try
+
+            if (!Items.SaveChangesUniqueHandler())
             {
-                App.DbManager.SaveChanges();
-            }
-            catch (DbUpdateException ex)
-            {
-                if (ex.InnerException?.InnerException is SqlException sqlEx &&
-                    (sqlEx.Number == 2601 || sqlEx.Number == 2627))
-                {
-                    MessageBox.Show("Потребителско име: " + username + " вече същестува!");
-                    return;
-                }
+                MessageBox.Show("Потребителско име: " + username + " вече същестува!");
+                return;
             }
 
+            NavigateToLoginWindow();
+        }
+
+        public void NavigateToLoginWindow()
+        {
             LoginWindow logWindow = new LoginWindow();
             this.Close();
             logWindow.Show();
         }
-
 
         private bool IsValidInputParams(string username, string password, string fullName)
         {
