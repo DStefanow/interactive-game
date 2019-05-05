@@ -32,11 +32,16 @@
                Margin="35,300,40,0" VerticalAlignment="Top"
         />
         <ComboBox HorizontalAlignment="Left" Height="30" Margin="290,305,0,0" 
-                 VerticalAlignment="Top" Width="200" Name="CategoryBox"
+                 VerticalAlignment="Top" Width="200" Name="UserBox"
         />
         <Button Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="35,363,0,0" Width="120" Height="22" FontSize="15" FontFamily="Arial"
                 Foreground="White" Background="#304f51" Name="BackButton" RenderTransformOrigin="0.525,2.864"
+        />
+        <Button Content="Изтрий" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="370,363,0,0" Width="120" Height="22" FontSize="15" FontFamily="Arial"
+                Foreground="Black" Background="White" RenderTransformOrigin="0.525,2.864"
+                Name="DeleteUserButton" Click="DeleteUserClick"
         />
     </Grid>
 </Window>
