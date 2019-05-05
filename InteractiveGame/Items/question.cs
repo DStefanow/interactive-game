@@ -17,6 +17,7 @@ namespace InteractiveGame
 
         public int Id { get; set; }
 
+        [Column("topic_id")]
         public int TopicId { get; set; }
 
         [Column(TypeName = "ntext")]

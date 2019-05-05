@@ -11,6 +11,7 @@ namespace InteractiveGame
     {
         public int Id { get; set; }
 
+        [Column("question_id")]
         public int QuestionId { get; set; }
 
         [Required]
@@ -19,6 +20,7 @@ namespace InteractiveGame
 
         public int Points { get; set; }
 
+        [Column("is_true")]
         public bool? IsTrue { get; set; }
 
         public virtual Question Question { get; set; }

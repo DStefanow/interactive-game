@@ -9,12 +9,12 @@ namespace InteractiveGame
     public partial class UserScore
     {
         [Key]
-        [Column(Order = 0)]
+        [Column("user_id", Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int UserId { get; set; }
 
         [Key]
-        [Column(Order = 1)]
+        [Column("category_id", Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CategoryId { get; set; }
 

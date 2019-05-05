@@ -19,6 +19,7 @@ namespace InteractiveGame
         public int Id { get; set; }
 
         [Required]
+        [Column("category_name")]
         [StringLength(64)]
         public string CategoryName { get; set; }
 
