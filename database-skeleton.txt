@@ -12,7 +12,7 @@ CREATE TABLE game_user (
 
 CREATE TABLE category (
 	id INT PRIMARY KEY NOT NULL IDENTITY(1,1),
-	category_name nvarchar(64) NOT NULL
+	category_name nvarchar(64) NOT NULL UNIQUE
 );
 
 CREATE TABLE topic (

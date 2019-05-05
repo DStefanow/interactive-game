@@ -10,8 +10,10 @@ namespace InteractiveGame
     public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Category()
+        public Category(string categoryName)
         {
+            this.CategoryName = categoryName;
+
             UserScore = new HashSet<UserScore>();
             Topic = new HashSet<Topic>();
         }
@@ -20,6 +22,7 @@ namespace InteractiveGame
 
         [Required]
         [Column("category_name")]
+        [Index(IsUnique = true)]
         [StringLength(64)]
         public string CategoryName { get; set; }
 

@@ -1,27 +1,53 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace InteractiveGame
 {
-    /// <summary>
-    /// Interaction logic for CreateCategroyPage.xaml
-    /// </summary>
     public partial class CreateCategoryWindow : Window
     {
+        private const short CATEGORY_NAME_LENGTH = 4;
+
         public CreateCategoryWindow()
         {
             InitializeComponent();
+        }
+
+        public void BackButtonClick(object sender, RoutedEventArgs e)
+        {
+            NavigateToAdminPanel();
+        }
+
+        public void InsertButtonClick(object sender, RoutedEventArgs e)
+        {
+            string category = CategoryNameBox.Text;
+
+            if (category.Length < CATEGORY_NAME_LENGTH)
+            {
+                MessageBox.Show("Името на категорията трябва да е поне " + CATEGORY_NAME_LENGTH + " символа!");
+                return;
+            }
+
+            Category newCategory = new Category(category);
+            App.DbManager.Category.Add(newCategory);
+
+            CategoryNameBox.Clear();
+
+            if (!Items.SaveChangesUniqueHandler())
+            {
+                MessageBox.Show("Категория " + category + " вече същестува!");
+                return;
+            }
+
+            MessageBox.Show("Категория: " + category + " добавена към списъка с категории.");
+            NavigateToAdminPanel();
+        }
+
+        public void NavigateToAdminPanel()
+        {
+            AdminWindow adminWindow = new AdminWindow();
+            this.Close();
+            adminWindow.Show();
         }
     }
 }
