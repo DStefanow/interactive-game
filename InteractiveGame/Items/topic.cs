@@ -22,6 +22,7 @@ namespace InteractiveGame
 
         [Required]
         [StringLength(64)]
+        [Index(IsUnique = true)]
         public string Title { get; set; }
 
         [Column(TypeName = "ntext")]

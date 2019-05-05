@@ -18,7 +18,7 @@ CREATE TABLE category (
 CREATE TABLE topic (
 	id INT PRIMARY KEY NOT NULL IDENTITY(1,1),
 	category_id INT NOT NULL,
-	title nvarchar(64) NOT NULL,
+	title nvarchar(64) NOT NULL UNIQUE,
 	description ntext NOT NULL
 );
 

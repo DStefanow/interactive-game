@@ -35,12 +35,13 @@
         />
         <Button Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="50,510,0,0" Width="120" Height="22" FontSize="15" FontFamily="Arial"
-                Foreground="White" Background="#304f51" Name="BackButton" RenderTransformOrigin="0.525,2.864"
+                Foreground="White" Background="#304f51" RenderTransformOrigin="0.525,2.864"
+                Name="BackButton" Click="BackButtonClick"
         />
         <Button Content="Добави" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="600,510,0,0" Width="120" Height="22"
                 FontSize="15" FontFamily="Arial" Foreground="Black" Background="White"
-                Name="InsertButton"
+                Name="InsertButton" Click="InsertButtonClick"
         />
     </Grid>
 </Window>
