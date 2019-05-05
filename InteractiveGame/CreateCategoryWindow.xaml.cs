@@ -17,9 +17,9 @@ namespace InteractiveGame
     /// <summary>
     /// Interaction logic for CreateCategroyPage.xaml
     /// </summary>
-    public partial class CreateCategroyPage : Window
+    public partial class CreateCategoryWindow : Window
     {
-        public CreateCategroyPage()
+        public CreateCategoryWindow()
         {
             InitializeComponent();
         }

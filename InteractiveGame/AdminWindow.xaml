@@ -15,17 +15,17 @@
         <Button Content="Добави категория" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="225,90,0,0" Width="175" Height="45"
                 FontSize="15" FontFamily="Arial" Foreground="Black" Background="White"
-                Name="InsertCategoryButton"
+                Name="InsertCategoryButton" Click="InsertCategoryClick"
         />
         <Button Content="Добави тема" HorizontalAlignment="Left" VerticalAlignment="Top"
             Margin="225,155,0,0" Width="175" Height="45"
             FontSize="15" FontFamily="Arial" Foreground="White" Background="#4e535b"
-            Name="InsertTopicButton"
+            Name="InsertTopicButton" Click="InsertTopicClick"
         />
         <Button Content="Добави QA" HorizontalAlignment="Left" VerticalAlignment="Top"
             Margin="225,220,0,0" Width="175" Height="45"
             FontSize="15" FontFamily="Arial" Foreground="White" Background="#304f51"
-            Name="InsertQAButton"
+            Name="InsertQAButton" Click="InsertQAClick"
         />
         <Label Content="Изтрий потребител:"
                FontSize="25" Foreground="Black" FontFamily="Arial"
@@ -34,9 +34,10 @@
         <ComboBox HorizontalAlignment="Left" Height="30" Margin="290,305,0,0" 
                  VerticalAlignment="Top" Width="200" Name="UserBox"
         />
-        <Button Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Top"
+        <Button Content="Изход" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="35,363,0,0" Width="120" Height="22" FontSize="15" FontFamily="Arial"
-                Foreground="White" Background="#304f51" Name="BackButton" RenderTransformOrigin="0.525,2.864"
+                Foreground="White" Background="#304f51" RenderTransformOrigin="0.525,2.864"
+                Name="ExitButton" Click="ExitButtonClick"
         />
         <Button Content="Изтрий" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="370,363,0,0" Width="120" Height="22" FontSize="15" FontFamily="Arial"

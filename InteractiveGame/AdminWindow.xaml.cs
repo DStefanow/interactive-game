@@ -27,6 +27,34 @@ namespace InteractiveGame
             }
         }
 
+        public void InsertCategoryClick(object sender, RoutedEventArgs e)
+        {
+            CreateCategoryWindow createCategoryWindow = new CreateCategoryWindow();
+            this.Close();
+            createCategoryWindow.Show();
+        }
+
+        public void InsertTopicClick(object sender, RoutedEventArgs e)
+        {
+            CreateTopicWindow createTopicWindow = new CreateTopicWindow();
+            this.Close();
+            createTopicWindow.Show();
+        }
+
+        public void InsertQAClick(object sender, RoutedEventArgs e)
+        {
+            CreateQAWindow createQaWindow = new CreateQAWindow();
+            this.Close();
+            createQaWindow.Show();
+        }
+
+        public void ExitButtonClick(object sender, RoutedEventArgs e)
+        {
+            LoginWindow logWindow = new LoginWindow();
+            this.Close();
+            logWindow.Show();
+        }
+
         public void DeleteUserClick(object sender, RoutedEventArgs e)
         {
             DeleteByUsername(((ComboBoxItem)UserBox.SelectedItem).Content.ToString());
@@ -35,7 +63,9 @@ namespace InteractiveGame
 
         public List<string> GetAllUsernames()
         {
-            return App.DbManager.GameUser.Where(u => u.IsAdmin == null || u.IsAdmin == false).Select(u => u.Username).ToList();
+            return App.DbManager.GameUser.Where(u => u.IsAdmin == null || u.IsAdmin == false).
+                Select(u => u.Username).
+                ToList();
         }
 
         public void DeleteByUsername(string username)
