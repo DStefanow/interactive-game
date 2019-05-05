@@ -8,10 +8,8 @@ using System.Windows;
 
 namespace InteractiveGame
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
+        public static Items DbManager = new Items();
     }
 }
