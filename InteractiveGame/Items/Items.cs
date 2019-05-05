@@ -2,8 +2,9 @@ namespace InteractiveGame
 {
     using System;
     using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using System.Data.Entity.Infrastructure;
+    using System.Data.SqlClient;
 
     public partial class Items : DbContext
     {
@@ -56,6 +57,24 @@ namespace InteractiveGame
                 .WithRequired(e => e.Topic)
                 .HasForeignKey(e => e.TopicId)
                 .WillCascadeOnDelete(false);
+        }
+
+        public static bool SaveChangesUniqueHandler()
+        {
+            try
+            {
+                App.DbManager.SaveChanges();
+            }
+            catch (DbUpdateException ex)
+            {
+                if (ex.InnerException?.InnerException is SqlException sqlEx &&
+                    (sqlEx.Number == 2601 || sqlEx.Number == 2627))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }
