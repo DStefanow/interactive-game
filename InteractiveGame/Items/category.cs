@@ -18,6 +18,12 @@ namespace InteractiveGame
             Topic = new HashSet<Topic>();
         }
 
+        public Category()
+        {
+            UserScore = new HashSet<UserScore>();
+            Topic = new HashSet<Topic>();
+        }
+
         public int Id { get; set; }
 
         [Required]

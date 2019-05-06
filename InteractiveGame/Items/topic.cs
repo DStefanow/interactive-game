@@ -5,6 +5,7 @@ namespace InteractiveGame
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Linq;
 
     [Table("topic")]
     public partial class Topic
@@ -12,6 +13,16 @@ namespace InteractiveGame
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Topic()
         {
+            Question = new HashSet<Question>();
+        }
+
+        public Topic(int categoryId, string title, string description)
+        {
+            this.CategoryId = categoryId;
+            this.Category = App.DbManager.Category.First(c => c.Id == categoryId);
+            this.Title = title;
+            this.Description = description;
+
             Question = new HashSet<Question>();
         }
 
