@@ -12,15 +12,15 @@ namespace InteractiveGame
         public CreateTopicWindow()
         {
             InitializeComponent();
-            PopulateUserBox();
+            PopulateCategoryBox();
         }
 
-        public void BackButtonClick(object sender, RoutedEventArgs e)
+        private void BackButtonClick(object sender, RoutedEventArgs e)
         {
             NavigateToAdminPanel();
         }
 
-        public void InsertButtonClick(object sender, RoutedEventArgs e)
+        private void InsertButtonClick(object sender, RoutedEventArgs e)
         {
             string selectedName = ((ComboBoxItem)CategoryBox.SelectedItem).Name.ToString();
             int categoryId = Int32.Parse(Regex.Match(selectedName, @"\d+").Value);
@@ -39,14 +39,14 @@ namespace InteractiveGame
             NavigateToAdminPanel();
         }
 
-        public void NavigateToAdminPanel()
+        private void NavigateToAdminPanel()
         {
             AdminWindow admWindow = new AdminWindow();
             this.Close();
             admWindow.Show();
         }
 
-        public void PopulateUserBox()
+        private void PopulateCategoryBox()
         {
             CategoryBox.Items.Clear();
 
@@ -59,12 +59,12 @@ namespace InteractiveGame
             }
         }
 
-        public List<Category> GetAllCategories()
+        private List<Category> GetAllCategories()
         {
             return App.DbManager.Category.Select(x => x).ToList();
         }
 
-        public void AddTopic(int categoryId, string title, string description)
+        private void AddTopic(int categoryId, string title, string description)
         {
             Topic newTopic = new Topic(categoryId, title, description);
             App.DbManager.Topic.Add(newTopic);

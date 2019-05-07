@@ -28,7 +28,7 @@
                Margin="20,140,270,0" VerticalAlignment="Top" Width="200" Height="30"
         />
         <ComboBox HorizontalAlignment="Left" Height="30" Margin="160,140,0,0" 
-                 VerticalAlignment="Top" Width="240" Name="CategoryBox"
+                 VerticalAlignment="Top" Width="240" Name="CategoryBox" SelectionChanged="CategoryChange"
         />
         <Label Content="Избери тема:"
             FontSize="15" Foreground="Black" FontFamily="Arial"
@@ -48,12 +48,13 @@
          />
         <Button Content="Изход" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="21,500,0,0" Width="120" Height="22"
-                FontSize="15" FontFamily="Arial" Foreground="White" Background="#304f51" Name="ExitButton"
+                FontSize="15" FontFamily="Arial" Foreground="White" Background="#304f51"
+                Name="ExitButton" Click="ExitButtonClick"
         />
         <Button Content="Започни тема" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="280,500,0,0" Width="120" Height="22"
                 FontSize="15" FontFamily="Arial" Foreground="Black" Background="White"
-                Name="StartTopicButton"
+                Name="StartTopicButton" Click="StartTopicClick"
         />
     </Grid>
 </Window>

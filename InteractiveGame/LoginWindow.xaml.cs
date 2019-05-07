@@ -42,12 +42,14 @@ namespace InteractiveGame
                 AdminWindow admWindow = new AdminWindow();
                 this.Close();
                 admWindow.Show();
+                return;
             }
             else
             {
-                UserWindow userWindow = new UserWindow();
+                UserWindow userWindow = new UserWindow(user);
                 this.Close();
                 userWindow.Show();
+                return;
             }
         }
 
