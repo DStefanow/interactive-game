@@ -63,54 +63,54 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AdminWindow.xaml.cs">
+    <Compile Include="Windows\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Items\Answer.cs" />
     <Compile Include="Items\Category.cs" />
-    <Compile Include="CreateCategoryWindow.xaml.cs">
+    <Compile Include="Windows\CreateCategoryWindow.xaml.cs">
       <DependentUpon>CreateCategoryWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CreateQAWindow.xaml.cs">
+    <Compile Include="Windows\CreateQAWindow.xaml.cs">
       <DependentUpon>CreateQAWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CreateTopicWindow.xaml.cs">
+    <Compile Include="Windows\CreateTopicWindow.xaml.cs">
       <DependentUpon>CreateTopicWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Items\GameUser.cs" />
     <Compile Include="Items\Items.cs" />
-    <Compile Include="QAWindow.xaml.cs">
+    <Compile Include="Windows\QAWindow.xaml.cs">
       <DependentUpon>QAWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Items\Question.cs" />
-    <Compile Include="RegisterWindow.xaml.cs">
+    <Compile Include="Windows\RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Items\Topic.cs" />
-    <Compile Include="TopicWindow.xaml.cs">
+    <Compile Include="Windows\TopicWindow.xaml.cs">
       <DependentUpon>TopicWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserWindow.xaml.cs">
+    <Compile Include="Windows\UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Items\UserScore.cs" />
-    <Page Include="AdminWindow.xaml">
+    <Page Include="Windows\AdminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CreateCategoryWindow.xaml">
+    <Page Include="Windows\CreateCategoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CreateQAWindow.xaml">
+    <Page Include="Windows\CreateQAWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CreateTopicWindow.xaml">
+    <Page Include="Windows\CreateTopicWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LoginWindow.xaml">
+    <Page Include="Windows\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -118,23 +118,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="LoginWindow.xaml.cs">
+    <Compile Include="Windows\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="QAWindow.xaml">
+    <Page Include="Windows\QAWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RegisterWindow.xaml">
+    <Page Include="Windows\RegisterWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TopicWindow.xaml">
+    <Page Include="Windows\TopicWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserWindow.xaml">
+    <Page Include="Windows\UserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
