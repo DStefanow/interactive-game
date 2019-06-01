@@ -19,8 +19,14 @@ namespace InteractiveGame
     /// </summary>
     public partial class TopicWindow : Window
     {
-        public TopicWindow()
+        GameUser currentUser;
+        Topic currentTopic;
+
+        public TopicWindow(int topicId, GameUser user)
         {
+            currentUser = user;
+            currentTopic = App.DbManager.Topic.FirstOrDefault(t => t.Id == topicId);
+
             InitializeComponent();
         }
     }

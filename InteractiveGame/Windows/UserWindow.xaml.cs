@@ -27,7 +27,7 @@ namespace InteractiveGame
 
             PopulateUserInfo();
             PopulateCategoryBox();
-            PopulateUserScoreBox(user.Id);
+            PopulateUserScoreBox(currentUser.Id);
         }
 
         private void ExitButtonClick(object sender, RoutedEventArgs e)
@@ -39,7 +39,13 @@ namespace InteractiveGame
 
         private void StartTopicClick(object sender, RoutedEventArgs e)
         {
-            // TODO ...
+            string selectedName = ((ComboBoxItem)TopicBox.SelectedItem).Name.ToString();
+            int topicId = Int32.Parse(Regex.Match(selectedName, @"\d+").Value);
+
+            TopicWindow topicWindow = new TopicWindow(topicId, currentUser);
+            this.Close();
+            topicWindow.Show();
+            return;
         }
 
         private void CategoryChange(object sender, SelectionChangedEventArgs e)
@@ -117,7 +123,7 @@ namespace InteractiveGame
                     Content = resultData
                 };
 
-                PointOnCategory.Items.Add(new ListBox);
+                PointOnCategory.Items.Add(item);
             }
         }
     }
