@@ -28,6 +28,21 @@ namespace InteractiveGame
             currentTopic = App.DbManager.Topic.FirstOrDefault(t => t.Id == topicId);
 
             InitializeComponent();
+            PopulateTopicData();
+        }
+        
+        private void ToUserWindow(object sender, RoutedEventArgs e)
+        {
+            UserWindow userWindow = new UserWindow(currentUser);
+            this.Close();
+            userWindow.Show();
+            return;
+        }
+
+        private void PopulateTopicData()
+        {
+            TopicTitleLabel.Content = currentTopic.Title;
+            TopicContentLabel.Text = currentTopic.Description;
         }
     }
 }

@@ -11,15 +11,18 @@
                FontSize="25" Foreground="White" FontFamily="Arial"
                HorizontalContentAlignment="Left" VerticalContentAlignment="Top" HorizontalAlignment="Center"
                Margin="265,10,225,0" VerticalAlignment="Top" Width="200" Height="40" Name="TopicTitleLabel"
+               MaxWidth="200"
         />
-        <Label Content="(( Topic Content ))"
+        <TextBlock Text="(( Topic Content ))"
                FontSize="15" Foreground="Black" FontFamily="Arial"
-               HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalAlignment="Center"
-               Margin="18,55,20,0" VerticalAlignment="Top" Width="650" Height="400" Name="TopicContentLabel"
+               HorizontalAlignment="Stretch" TextWrapping="Wrap"
+               Margin="18,55,20,0" VerticalAlignment="Top" Width="Auto" Height="Auto" Name="TopicContentLabel"
+               MaxWidth="550"
         />
         <Button Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="80,500,0,0" Width="120" Height="22"
-                FontSize="15" FontFamily="Arial" Foreground="White" Background="#304f51" Name="BackButton"
+                FontSize="15" FontFamily="Arial" Foreground="White" Background="#304f51"
+                Name="BackButton" Click="ToUserWindow"
         />
         <Button Content="Започни въпроси" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="512,500,0,0" Width="130" Height="22"
