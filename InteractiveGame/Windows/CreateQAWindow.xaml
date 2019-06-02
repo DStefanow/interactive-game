@@ -5,169 +5,175 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InteractiveGame"
         mc:Ignorable="d"
-        Title="Добави Въпроси и Отговори" Height="900" Width="800">
-    <Grid Background="#40c9d1">
-        <Label Content="Добави въпроси и отговори"
+        Title="Добави Въпроси и Отговори" Height="1200" Width="800">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Background="#40c9d1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="87*"/>
+                <RowDefinition Height="80*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Добави въпроси и отговори"
                FontSize="40" Foreground="White" FontFamily="Arial"
-               HorizontalContentAlignment="Center" VerticalContentAlignment="Top" HorizontalAlignment="Center"
-               Margin="130,10,145,0" VerticalAlignment="Top" Width="517" Height="75"
-        />
-        <Label Content="Избери категория:"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Top" HorizontalAlignment="Right"
+               Margin="0,0,132,524" VerticalAlignment="Bottom" Width="523" Height="75"
+            />
+            <Label Content="Избери категория:"
                FontSize="25" Foreground="Black" FontFamily="Arial"
                Margin="50,105,20,0" VerticalAlignment="Top"
-        />
-        <ComboBox HorizontalAlignment="Left" Height="30" Margin="280,110,0,0" 
+            />
+            <ComboBox HorizontalAlignment="Left" Height="30" Margin="280,110,0,0" 
                  VerticalAlignment="Top" Width="380" Name="CategoryBox"
-        />
-        <Label Content="Избери тема:"
+            />
+            <Label Content="Избери тема:"
                FontSize="25" Foreground="Black" FontFamily="Arial"
                Margin="50,145,20,0" VerticalAlignment="Top"
-        />
-        <ComboBox HorizontalAlignment="Left" Height="30" Margin="280,150,0,0" 
+             />
+            <ComboBox HorizontalAlignment="Left" Height="30" Margin="280,150,0,0" 
                  VerticalAlignment="Top" Width="380" Name="TopicBox"
-        />
-        <Label Content="1. Въпрос:"
+            />
+            <Label Content="1. Въпрос:"
                FontSize="25" Foreground="Black" FontFamily="Arial"
                Margin="50,190,20,0" VerticalAlignment="Top"
-        />
-        <Label Content="Точки (1):"
+            />
+            <Label Content="Точки (1):"
             FontSize="18" Foreground="Black" FontFamily="Arial"
-            Margin="482,234,221,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
-        />
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top"
-                  Margin="576,238,0,0" Width="120" Name="FirstPoints">
-            <ComboBoxItem>1</ComboBoxItem>
-            <ComboBoxItem>2</ComboBoxItem>
-            <ComboBoxItem>3</ComboBoxItem>
-        </ComboBox>
-        <TextBox Height="30" Margin="0,195,130,0" 
+            Margin="499,229,180,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
+            />
+            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top"
+                  Margin="634,234,0,0" Width="120" Name="FirstPoints">
+                <ComboBoxItem>1</ComboBoxItem>
+                <ComboBoxItem>2</ComboBoxItem>
+                <ComboBoxItem>3</ComboBoxItem>
+            </ComboBox>
+            <TextBox Height="30" Margin="0,190,79,0" 
             VerticalAlignment="Top" Name="FirstQuestion" HorizontalAlignment="Right" Width="476"
-        />
-        <Label Content="1. Отговори:"
+            />
+            <Label Content="1. Отговори:"
                FontSize="25" Foreground="Black" FontFamily="Arial"
-               Margin="50,229,590,0" VerticalAlignment="Top" RenderTransformOrigin="-0.039,0.513"
-        />
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="40,275,0,0" 
+               Margin="50,229,535,0" VerticalAlignment="Top" RenderTransformOrigin="-0.039,0.513"
+            />
+            <TextBox HorizontalAlignment="Left" Height="30" Margin="40,275,0,0" 
             VerticalAlignment="Top" Width="120" Name="FirstCorrect"
-        />
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="220,275,0,0" 
+            />
+            <TextBox HorizontalAlignment="Left" Height="30" Margin="220,275,0,0" 
             VerticalAlignment="Top" Width="120" Name="FirstWrongOne"
-        />
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="398,275,0,0" 
+            />
+            <TextBox HorizontalAlignment="Left" Height="30" Margin="398,275,0,0" 
             VerticalAlignment="Top" Width="120" Name="FirstWrongTwo"
-        />
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="576,275,0,0" 
+            />
+            <TextBox HorizontalAlignment="Left" Height="30" Margin="576,275,0,0" 
             VerticalAlignment="Top" Width="120" Name="FirstWrongThree"
-        />
-        <Label Content="(Правилен)"
+            />
+            <Label Content="(Правилен)"
             FontSize="18" Foreground="Black" FontFamily="Arial"
             Margin="40,455,645,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
-        />
-        <Label Content="2. Въпрос:"
+            />
+            <Label Content="2. Въпрос:"
             FontSize="25" Foreground="Black" FontFamily="Arial"
             Margin="50,345,20,0" VerticalAlignment="Top"
-        />
-        <TextBox Height="30" Margin="0,350,130,0" 
+            />
+            <TextBox Height="30" Margin="0,350,84,0" 
             VerticalAlignment="Top" Name="SecondQuestion" HorizontalAlignment="Right" Width="476"
-        />
-        <Label Content="Точки (2):"
+            />
+            <Label Content="Точки (2):"
             FontSize="18" Foreground="Black" FontFamily="Arial"
-            Margin="477,385,226,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
-        />
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top"
-            Margin="571,389,0,0" Width="120" Name="SecondPoints_">
-            <ComboBoxItem Content="1"/>
-            <ComboBoxItem Content="2"/>
-            <ComboBoxItem Content="3"/>
-        </ComboBox>
-        <Label Content="2. Отговори:"
+            Margin="494,385,180,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
+            />
+            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="634,389,0,0" Width="120" Name="SecondPoints_">
+                <ComboBoxItem Content="1"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="3"/>
+            </ComboBox>
+            <Label Content="2. Отговори:"
             FontSize="25" Foreground="Black" FontFamily="Arial"
-            Margin="50,384,590,0" VerticalAlignment="Top"
-        />
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="35,425,0,0" 
+            Margin="50,384,547,0" VerticalAlignment="Top"
+            />
+            <TextBox HorizontalAlignment="Left" Height="30" Margin="35,425,0,0" 
             VerticalAlignment="Top" Width="120" Name="SecondCorrect"
-        />
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="215,425,0,0" 
+            />
+            <TextBox HorizontalAlignment="Left" Height="30" Margin="215,425,0,0" 
             VerticalAlignment="Top" Width="120" Name="SecondWrongOne"
-        />
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="393,425,0,0" 
+            />
+            <TextBox HorizontalAlignment="Left" Height="30" Margin="393,425,0,0" 
             VerticalAlignment="Top" Width="120" Name="SecondWrongTwo"
-        />
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="571,425,0,0" 
+            />
+            <TextBox HorizontalAlignment="Left" Height="30" Margin="571,425,0,0" 
             VerticalAlignment="Top" Width="120" Name="SecondWrongThree"
-        />
-        <Label Content="(Правилен)"
+            />
+            <Label Content="(Правилен)"
             FontSize="18" Foreground="Black" FontFamily="Arial"
-            Margin="40,310,645,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
-        />
-        <Label Content="3. Въпрос:"
+            Margin="0,310,645,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247" HorizontalAlignment="Right" Width="107"
+            />
+            <Label Content="3. Въпрос:"
             FontSize="25" Foreground="Black" FontFamily="Arial"
             Margin="50,485,20,0" VerticalAlignment="Top"
-        />
-        <TextBox Height="30" Margin="0,490,130,0" 
+            />
+            <TextBox Height="30" Margin="0,490,79,0" 
             VerticalAlignment="Top" Name="ThirdQuestion" HorizontalAlignment="Right" Width="476"
-        />
-        <Label Content="Точки (3):"
+            />
+            <Label Content="Точки (3):"
             FontSize="18" Foreground="Black" FontFamily="Arial"
-            Margin="477,525,226,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
-        />
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top"
-            Margin="571,529,0,0" Width="120" Name="ThirdPoints">
-            <ComboBoxItem Content="1"/>
-            <ComboBoxItem Content="2"/>
-            <ComboBoxItem Content="3"/>
-        </ComboBox>
-        <Label Content="3. Отговори:"
+            Margin="499,525,180,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
+            />
+            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="634,529,0,0" Width="120" Name="ThirdPoints">
+                <ComboBoxItem Content="1"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="3"/>
+            </ComboBox>
+            <Label Content="3. Отговори:"
             FontSize="25" Foreground="Black" FontFamily="Arial"
-            Margin="50,520,590,0" VerticalAlignment="Top"
-        />
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="35,565,0,0" 
+            Margin="50,520,547,0" VerticalAlignment="Top"
+            />
+            <TextBox HorizontalAlignment="Left" Height="30" Margin="35,565,0,0" 
             VerticalAlignment="Top" Width="120" Name="ThirdCorrect"
-        />
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="215,565,0,0" 
+            />
+            <TextBox HorizontalAlignment="Left" Height="30" Margin="215,565,0,0" 
             VerticalAlignment="Top" Width="120" Name="ThirdtWrongOne"
-        />
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="393,565,0,0" 
+            />
+            <TextBox HorizontalAlignment="Left" Height="30" Margin="393,565,0,0" 
             VerticalAlignment="Top" Width="120" Name="ThirdWrongTwo"
-        />
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="571,565,0,0" 
+            />
+            <TextBox HorizontalAlignment="Left" Height="30" Margin="571,565,0,0" 
             VerticalAlignment="Top" Width="120" Name="ThirdWrongThree"
-        />
-        <Label Content="(Правилен)"
+            />
+            <Label Content="(Правилен)"
             FontSize="18" Foreground="Black" FontFamily="Arial"
-            Margin="40,595,645,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
-        />
-        <Label Content="4. Въпрос:"
+            Margin="0,595,645,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247" Grid.RowSpan="2" HorizontalAlignment="Right" Width="107"
+            />
+            <Label Content="4. Въпрос:"
             FontSize="25" Foreground="Black" FontFamily="Arial"
-            Margin="50,647,20,0" VerticalAlignment="Top"
-        />
-        <TextBox Height="30" Margin="0,652,130,0" 
-            VerticalAlignment="Top" Name="FourthQuestion" HorizontalAlignment="Right" Width="476"
-        />
-        <Label Content="4. Отговор (отворен):" FontSize="25" Foreground="Black" FontFamily="Arial"
-            Margin="50,694,488,0" VerticalAlignment="Top"
-        />
-        <TextBox Height="30" Margin="0,700,311,0" 
-            VerticalAlignment="Top" Name="FourthAnswer" HorizontalAlignment="Right" Width="172"
-        />
-        <Label Content="Точки (4):"
+            Margin="50,38,20,0" VerticalAlignment="Top" Grid.Row="1"
+            />
+            <TextBox Height="30" Margin="0,47,79,0" 
+            VerticalAlignment="Top" Name="FourthQuestion" HorizontalAlignment="Right" Width="476" Grid.Row="1"
+            />
+            <Label Content="4. Отговор (отворен):" FontSize="25" Foreground="Black" FontFamily="Arial"
+            Margin="50,85,488,0" VerticalAlignment="Top" Grid.Row="1"
+            />
+            <TextBox Height="30" Margin="0,91,311,0" 
+            VerticalAlignment="Top" Name="FourthAnswer" HorizontalAlignment="Right" Width="172" Grid.Row="1"
+            />
+            <Label Content="Точки (4):"
             FontSize="18" Foreground="Black" FontFamily="Arial"
-            Margin="482,700,221,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
-        />
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top"
-            Margin="576,704,0,0" Width="120" x:Name="FourthPoints">
-            <ComboBoxItem Content="1"/>
-            <ComboBoxItem Content="2"/>
-            <ComboBoxItem Content="3"/>
-        </ComboBox>
-        <Button Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Top"
-                Margin="80,770,0,0" Width="120" Height="30" FontSize="20" FontFamily="Arial"
-                Foreground="White" Background="#304f51" Name="BackButton" RenderTransformOrigin="0.525,2.864"
-        />
-        <Button Content="Добави" HorizontalAlignment="Left" VerticalAlignment="Top"
-                Margin="599,770,0,0" Width="120" Height="30"
+            Margin="499,93,180,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247" Grid.Row="1"
+            />
+            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="634,99,0,0" Width="120" x:Name="FourthPoints" Grid.Row="1">
+                <ComboBoxItem Content="1"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="3"/>
+            </ComboBox>
+            <Button Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="80,161,0,0" Width="120" Height="30" FontSize="20" FontFamily="Arial"
+                Foreground="White" Background="#304f51" Name="BackButton" RenderTransformOrigin="0.525,2.864" Grid.Row="1"
+            />
+            <Button Content="Добави" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="599,161,0,0" Width="120" Height="30"
                 FontSize="20" FontFamily="Arial" Foreground="Black" Background="White"
-                Name="InsertButton"
-        />
-    </Grid>
+                Name="InsertButton" Grid.Row="1"
+            />
+        </Grid>
+    </ScrollViewer>
 </Window>
