@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InteractiveGame"
         mc:Ignorable="d"
-        Title="Добави Въпроси и Отговори" Height="1200" Width="800">
+        Title="Добави Въпроси и Отговори" Height="700" Width="800">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <Grid Background="#40c9d1">
             <Grid.RowDefinitions>
@@ -66,7 +66,7 @@
             />
             <Label Content="(Правилен)"
             FontSize="18" Foreground="Black" FontFamily="Arial"
-            Margin="40,455,645,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
+            Margin="35,455,625,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
             />
             <Label Content="2. Въпрос:"
             FontSize="25" Foreground="Black" FontFamily="Arial"
@@ -103,7 +103,7 @@
             />
             <Label Content="(Правилен)"
             FontSize="18" Foreground="Black" FontFamily="Arial"
-            Margin="0,310,645,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247" HorizontalAlignment="Right" Width="107"
+            Margin="0,310,633,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247" HorizontalAlignment="Right" Width="107"
             />
             <Label Content="3. Въпрос:"
             FontSize="25" Foreground="Black" FontFamily="Arial"
@@ -140,7 +140,7 @@
             />
             <Label Content="(Правилен)"
             FontSize="18" Foreground="Black" FontFamily="Arial"
-            Margin="0,595,645,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247" Grid.RowSpan="2" HorizontalAlignment="Right" Width="107"
+            Margin="0,595,633,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247" Grid.RowSpan="2" HorizontalAlignment="Right" Width="107"
             />
             <Label Content="4. Въпрос:"
             FontSize="25" Foreground="Black" FontFamily="Arial"
@@ -149,11 +149,11 @@
             <TextBox Height="30" Margin="0,47,79,0" 
             VerticalAlignment="Top" Name="FourthQuestion" HorizontalAlignment="Right" Width="476" Grid.Row="1"
             />
-            <Label Content="4. Отговор (отворен):" FontSize="25" Foreground="Black" FontFamily="Arial"
-            Margin="50,85,488,0" VerticalAlignment="Top" Grid.Row="1"
+            <Label Content="4. Отговор (отв.):" FontSize="20" Foreground="Black" FontFamily="Arial"
+            Margin="50,91,535,0" VerticalAlignment="Top" Grid.Row="1" RenderTransformOrigin="0.476,1.242"
             />
             <TextBox Height="30" Margin="0,91,311,0" 
-            VerticalAlignment="Top" Name="FourthAnswer" HorizontalAlignment="Right" Width="172" Grid.Row="1"
+            VerticalAlignment="Top" Name="FourthAnswer" HorizontalAlignment="Right" Width="219" Grid.Row="1"
             />
             <Label Content="Точки (4):"
             FontSize="18" Foreground="Black" FontFamily="Arial"
