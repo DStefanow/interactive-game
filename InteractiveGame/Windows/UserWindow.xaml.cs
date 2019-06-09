@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace InteractiveGame
 {
@@ -74,7 +66,7 @@ namespace InteractiveGame
         {
             CategoryBox.Items.Clear();
 
-            List<Category> categories = GetAllCategories();
+            List<Category> categories = GetAllCategoriesWithTopics();
 
             CategoryBox.SelectedIndex = 0;
             foreach (Category category in categories)
@@ -83,9 +75,13 @@ namespace InteractiveGame
             }
         }
 
-        private List<Category> GetAllCategories()
+        private List<Category> GetAllCategoriesWithTopics()
         {
-            return App.DbManager.Category.Select(x => x).ToList();
+            return App.DbManager.Category.SqlQuery("SELECT c.id, c.category_name as CategoryName FROM category c " +
+                    "JOIN topic t " +
+                    "ON c.id = t.category_id " +
+                    "GROUP BY c.id, c.category_name").
+                    ToList();
         }
 
         private List<Topic> GetAllTopicsForGivenCategory(int currentCategoryId)
