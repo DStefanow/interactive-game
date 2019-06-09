@@ -70,6 +70,7 @@ namespace InteractiveGame
                 if (ex.InnerException?.InnerException is SqlException sqlEx &&
                     (sqlEx.Number == 2601 || sqlEx.Number == 2627))
                 {
+                    App.DbManager = new Items();
                     return false;
                 }
             }
