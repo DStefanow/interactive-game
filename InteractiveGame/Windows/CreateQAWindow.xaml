@@ -80,7 +80,7 @@
             Margin="494,385,180,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
             />
             <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" SelectedIndex="0"
-            Margin="634,389,0,0" Width="120" Name="SecondPoints_">
+            Margin="634,389,0,0" Width="120" Name="SecondPoints">
                 <ComboBoxItem Content="1"/>
                 <ComboBoxItem Content="2"/>
                 <ComboBoxItem Content="3"/>
@@ -130,7 +130,7 @@
             VerticalAlignment="Top" Width="120" Name="ThirdCorrect"
             />
             <TextBox HorizontalAlignment="Left" Height="30" Margin="215,565,0,0" 
-            VerticalAlignment="Top" Width="120" Name="ThirdtWrongOne"
+            VerticalAlignment="Top" Width="120" Name="ThirdWrongOne"
             />
             <TextBox HorizontalAlignment="Left" Height="30" Margin="393,565,0,0" 
             VerticalAlignment="Top" Width="120" Name="ThirdWrongTwo"

@@ -9,6 +9,8 @@ namespace InteractiveGame
 {
     public partial class CreateQAWindow : Window
     {
+        private int topicId;
+
         public CreateQAWindow()
         {
             InitializeComponent();
@@ -25,8 +27,18 @@ namespace InteractiveGame
 
         public void InsertButtonClick(object sender, RoutedEventArgs e)
         {
+            foreach (TextBox t in App.FindVisualChildren<TextBox>(this))
+            {
+                if (t.Text == "")
+                {
+                    MessageBox.Show("Моля попълнете всички полета");
+                    return;
+                }
+            }
+
             string selectedName = ((ComboBoxItem)TopicBox.SelectedItem).Name.ToString();
             int topicId = Int32.Parse(Regex.Match(selectedName, @"\d+").Value);
+            this.topicId = topicId;
 
             // Delete all questions with answer for the given topic (update option)
             App.DbManager.Question.RemoveRange(
@@ -36,8 +48,11 @@ namespace InteractiveGame
             );
             App.DbManager.SaveChanges();
 
-
-            InsertFirstQuestionAnswers(topicId);
+            // Insert Questions and Answers
+            InsertFirstQuestionAnswers();
+            InsertSecondQuestionAnswers();
+            InsertThirdQuestionAnswers();
+            InsertFourthQuestionAnswer();
         }
 
         private void PopulateCategoryBox()
@@ -77,7 +92,7 @@ namespace InteractiveGame
                     ToList();
         }
 
-        private void InsertFirstQuestionAnswers(int topicId)
+        private void InsertFirstQuestionAnswers()
         {
             // First Question
             string firstQuestion = this.FirstQuestion.Text;
@@ -89,7 +104,7 @@ namespace InteractiveGame
             string firstWrongTwo = this.FirstWrongTwo.Text;
             string firstWrongThree = this.FirstWrongThree.Text;
 
-            Question question = new Question(topicId, firstQuestion, firstPoints);
+            Question question = new Question(this.topicId, firstQuestion, firstPoints);
             App.DbManager.Question.Add(question);
             App.DbManager.SaveChanges();
 
@@ -99,6 +114,74 @@ namespace InteractiveGame
             App.DbManager.Answer.Add(new Answer(question.Id, firstWrongTwo, false));
             App.DbManager.Answer.Add(new Answer(question.Id, firstWrongThree, false));
 
+            App.DbManager.SaveChanges();
+        }
+
+        private void InsertSecondQuestionAnswers()
+        {
+            // Second Question
+            string secondQuestion = this.SecondQuestion.Text;
+            int secondPoints = Int32.Parse(this.SecondPoints.Text);
+
+            // Second Answers
+            string secondCorrect = this.SecondCorrect.Text;
+            string secondWrongOne = this.SecondWrongOne.Text;
+            string secondWrongTwo = this.SecondWrongTwo.Text;
+            string secondWrongThree = this.SecondWrongThree.Text;
+
+            Question question = new Question(this.topicId, secondQuestion, secondPoints);
+            App.DbManager.Question.Add(question);
+            App.DbManager.SaveChanges();
+
+            // Add answers
+            App.DbManager.Answer.Add(new Answer(question.Id, secondCorrect, true));
+            App.DbManager.Answer.Add(new Answer(question.Id, secondWrongOne, false));
+            App.DbManager.Answer.Add(new Answer(question.Id, secondWrongTwo, false));
+            App.DbManager.Answer.Add(new Answer(question.Id, secondWrongThree, false));
+
+            App.DbManager.SaveChanges();
+        }
+
+        private void InsertThirdQuestionAnswers()
+        {
+            // Third Question
+            string thirdQuestion = this.ThirdQuestion.Text;
+            int thirdPoints = Int32.Parse(this.ThirdPoints.Text);
+
+            // Third Answers
+            string thirdCorrect = this.ThirdCorrect.Text;
+            string thirdWrongOne = this.ThirdWrongOne.Text;
+            string thirdWrongTwo = this.ThirdWrongTwo.Text;
+            string thirdWrongThree = this.ThirdWrongThree.Text;
+
+            Question question = new Question(this.topicId, thirdQuestion, thirdPoints);
+            App.DbManager.Question.Add(question);
+            App.DbManager.SaveChanges();
+
+            // Add answers
+            App.DbManager.Answer.Add(new Answer(question.Id, thirdCorrect, true));
+            App.DbManager.Answer.Add(new Answer(question.Id, thirdWrongOne, false));
+            App.DbManager.Answer.Add(new Answer(question.Id, thirdWrongTwo, false));
+            App.DbManager.Answer.Add(new Answer(question.Id, thirdWrongThree, false));
+
+            App.DbManager.SaveChanges();
+        }
+
+        private void InsertFourthQuestionAnswer()
+        {
+            // Fourth Question
+            string fourthQuestion = this.FourthQuestion.Text;
+            int fourthPoints = Int32.Parse(this.FourthPoints.Text);
+
+            // Fourth Answers
+            string fourthCorrect = this.FourthAnswer.Text;
+
+            Question question = new Question(this.topicId, fourthQuestion, fourthPoints);
+            App.DbManager.Question.Add(question);
+            App.DbManager.SaveChanges();
+
+            // Add answer
+            App.DbManager.Answer.Add(new Answer(question.Id, fourthCorrect, true));
             App.DbManager.SaveChanges();
         }
 
