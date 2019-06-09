@@ -173,7 +173,7 @@
             <Button Content="Добави" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="599,161,0,0" Width="120" Height="30"
                 FontSize="20" FontFamily="Arial" Foreground="Black" Background="White"
-                Name="InsertButton" Grid.Row="1"
+                Name="InsertButton" Grid.Row="1" Click="InsertButtonClick"
             />
         </Grid>
     </ScrollViewer>
