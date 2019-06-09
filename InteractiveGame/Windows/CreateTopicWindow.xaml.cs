@@ -28,6 +28,12 @@ namespace InteractiveGame
             string topicTitle = TitleBox.Text;
             string topicDescription = TopicText.Text;
 
+            if (topicTitle == "" || topicDescription == "")
+            {
+                MessageBox.Show("Моля добавете заглавие и описание на темата.");
+                return;
+            }
+
             AddTopic(categoryId, topicTitle, topicDescription);
 
             if (!Items.SaveChangesUniqueHandler())
