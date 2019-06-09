@@ -21,8 +21,8 @@
                FontSize="25" Foreground="Black" FontFamily="Arial"
                Margin="50,105,20,0" VerticalAlignment="Top"
             />
-            <ComboBox HorizontalAlignment="Left" Height="30" Margin="280,110,0,0" 
-                 VerticalAlignment="Top" Width="380" Name="CategoryBox"
+            <ComboBox HorizontalAlignment="Left" Height="30" Margin="280,110,0,0"
+                 VerticalAlignment="Top" Width="380" Name="CategoryBox" SelectionChanged="CategoryChange"
             />
             <Label Content="Избери тема:"
                FontSize="25" Foreground="Black" FontFamily="Arial"
@@ -39,7 +39,7 @@
             FontSize="18" Foreground="Black" FontFamily="Arial"
             Margin="499,229,180,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
             />
-            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top"
+            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" SelectedIndex="0"
                   Margin="634,234,0,0" Width="120" Name="FirstPoints">
                 <ComboBoxItem>1</ComboBoxItem>
                 <ComboBoxItem>2</ComboBoxItem>
@@ -79,7 +79,7 @@
             FontSize="18" Foreground="Black" FontFamily="Arial"
             Margin="494,385,180,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
             />
-            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top"
+            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" SelectedIndex="0"
             Margin="634,389,0,0" Width="120" Name="SecondPoints_">
                 <ComboBoxItem Content="1"/>
                 <ComboBoxItem Content="2"/>
@@ -116,7 +116,7 @@
             FontSize="18" Foreground="Black" FontFamily="Arial"
             Margin="499,525,180,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247"
             />
-            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top"
+            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" SelectedIndex="0"
             Margin="634,529,0,0" Width="120" Name="ThirdPoints">
                 <ComboBoxItem Content="1"/>
                 <ComboBoxItem Content="2"/>
@@ -159,7 +159,7 @@
             FontSize="18" Foreground="Black" FontFamily="Arial"
             Margin="499,93,180,0" VerticalAlignment="Top" RenderTransformOrigin="0.748,0.247" Grid.Row="1"
             />
-            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top"
+            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" SelectedIndex="0"
             Margin="634,99,0,0" Width="120" x:Name="FourthPoints" Grid.Row="1">
                 <ComboBoxItem Content="1"/>
                 <ComboBoxItem Content="2"/>
@@ -167,7 +167,8 @@
             </ComboBox>
             <Button Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="80,161,0,0" Width="120" Height="30" FontSize="20" FontFamily="Arial"
-                Foreground="White" Background="#304f51" Name="BackButton" RenderTransformOrigin="0.525,2.864" Grid.Row="1"
+                Foreground="White" Background="#304f51" RenderTransformOrigin="0.525,2.864" Grid.Row="1"
+                Name="BackButton" Click="BackButtonClick"
             />
             <Button Content="Добави" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="599,161,0,0" Width="120" Height="30"
