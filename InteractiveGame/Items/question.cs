@@ -15,6 +15,13 @@ namespace InteractiveGame
             Answer = new HashSet<Answer>();
         }
 
+        public Question(int topicId, string description, int points)
+        {
+            this.TopicId = topicId;
+            this.Description = description;
+            this.Points = points;
+        }
+
         public int Id { get; set; }
 
         [Column("topic_id")]
@@ -28,5 +35,7 @@ namespace InteractiveGame
         public virtual ICollection<Answer> Answer { get; set; }
 
         public virtual Topic Topic { get; set; }
+
+        public int Points { get; set; }
     }
 }

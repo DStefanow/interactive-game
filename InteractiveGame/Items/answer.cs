@@ -18,11 +18,16 @@ namespace InteractiveGame
         [StringLength(256)]
         public string Description { get; set; }
 
-        public int Points { get; set; }
-
         [Column("is_true")]
         public bool? IsTrue { get; set; }
 
         public virtual Question Question { get; set; }
+
+        public Answer(int questionId, string description, bool isTrue)
+        {
+            this.QuestionId = questionId;
+            this.Description = description;
+            this.IsTrue = isTrue;
+        }
     }
 }
