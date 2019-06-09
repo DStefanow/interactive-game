@@ -49,8 +49,7 @@ namespace InteractiveGame
             modelBuilder.Entity<Question>()
                 .HasMany(e => e.Answer)
                 .WithRequired(e => e.Question)
-                .HasForeignKey(e => e.QuestionId)
-                .WillCascadeOnDelete(false);
+                .HasForeignKey(e => e.QuestionId);
 
             modelBuilder.Entity<Topic>()
                 .HasMany(e => e.Question)
