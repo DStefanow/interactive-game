@@ -41,6 +41,12 @@ namespace InteractiveGame
 
         private void StartQASession(object sender, RoutedEventArgs e)
         {
+            if (!HasQuestionsForTopic(currentTopic))
+            {
+                MessageBox.Show("Липсват въпроси за тема: " + currentTopic.Title);
+                return;
+            }
+
             QAWindow qaWindow = new QAWindow(currentUser, currentTopic);
             this.Close();
             qaWindow.Show();
@@ -51,6 +57,11 @@ namespace InteractiveGame
         {
             TopicTitleLabel.Content = currentTopic.Title;
             TopicContentLabel.Text = currentTopic.Description;
+        }
+
+        private bool HasQuestionsForTopic(Topic topic)
+        {
+            return App.DbManager.Question.Count(x => x.TopicId == topic.Id) == 4;
         }
     }
 }
