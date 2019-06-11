@@ -14,12 +14,9 @@ using System.Windows.Shapes;
 
 namespace InteractiveGame
 {
-    /// <summary>
-    /// Interaction logic for QAWindow.xaml
-    /// </summary>
     public partial class QAWindow : Window
     {
-        public QAWindow()
+        public QAWindow(GameUser currentUser, Topic currentTopic)
         {
             InitializeComponent();
         }

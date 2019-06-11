@@ -39,6 +39,14 @@ namespace InteractiveGame
             return;
         }
 
+        private void StartQASession(object sender, RoutedEventArgs e)
+        {
+            QAWindow qaWindow = new QAWindow(currentUser, currentTopic);
+            this.Close();
+            qaWindow.Show();
+            return;
+        }
+
         private void PopulateTopicData()
         {
             TopicTitleLabel.Content = currentTopic.Title;

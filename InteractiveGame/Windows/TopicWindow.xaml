@@ -27,7 +27,7 @@
         <Button Content="Започни въпроси" HorizontalAlignment="Left" VerticalAlignment="Top"
                 Margin="512,500,0,0" Width="130" Height="22"
                 FontSize="15" FontFamily="Arial" Foreground="Black" Background="White"
-                Name="StartQAButton"
+                Name="StartQAButton" Click="StartQASession"
         />
     </Grid>
 </Window>
