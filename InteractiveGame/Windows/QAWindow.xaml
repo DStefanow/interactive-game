@@ -55,13 +55,15 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="40,350,0,0" Name="AnswerFourthBox"
                  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160"
         />
-        <Button Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Top"
-                Margin="40,400,0,0" Width="120" Height="30" FontSize="20" FontFamily="Arial"
-                Foreground="White" Background="#304f51" Name="BackButton" RenderTransformOrigin="0.525,2.864"
+        <Button Content="Към профил" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="40,400,0,0" Width="131" Height="30" FontSize="20" FontFamily="Arial"
+                Foreground="White" Background="#304f51" RenderTransformOrigin="0.525,2.864"
+                Name="BackButton" Click="BackButtonClick"
         />
         <Button Content="Провери" HorizontalAlignment="Left" VerticalAlignment="Top"
-                Margin="520,400,0,0" Width="120" Height="30" Name="SubmitButton"
+                Margin="520,400,0,0" Width="120" Height="30"
                 FontSize="20" FontFamily="Arial" Foreground="Black" Background="White"
+                Name="SubmitButton" Click="SubmitClick"
         />
     </Grid>
 </Window>
