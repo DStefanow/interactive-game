@@ -29,5 +29,7 @@ namespace InteractiveGame
             this.Description = description;
             this.IsTrue = isTrue;
         }
+
+        public Answer() { }
     }
 }
