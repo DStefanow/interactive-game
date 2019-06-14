@@ -20,11 +20,13 @@ namespace InteractiveGame
         GameUser currentUser;
         Topic currentTopic;
         Question[] questions;
+        Dictionary<Question, List<Answer>> questionWithAnswers;
 
         public QAWindow(GameUser currentUser, Topic currentTopic)
         {
             this.currentUser = currentUser;
             this.currentTopic = currentTopic;
+            this.questionWithAnswers = Items.GetQuestionsWithAnswers(currentTopic);
 
             InitializeComponent();
             PopulateQuestionsAndAnswers();
@@ -54,7 +56,7 @@ namespace InteractiveGame
             QuestionThreeLabel.Content = questions[2].Description.ToString();
             QuestionFourthLabel.Content = questions[3].Description.ToString();
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 3; i++)
             {
                 PopulateAnswerBoxes(questions[i], i);
             }
@@ -62,7 +64,20 @@ namespace InteractiveGame
 
         private void PopulateAnswerBoxes(Question question, int index)
         {
+            string[] indexStr = new string[] { "First", "Second", "Third", "Fourth" };
+            string wpfName = indexStr[index];
 
+            List<Answer> answers = Items.GetAnswersForQuestionRnd(question.Id);
+
+            string answerIndex;
+            string btnName;
+            for (int i = 0; i < answers.Count; i++)
+            {
+                answerIndex = indexStr[i];
+                btnName = wpfName + "Answer" + answerIndex;
+                RadioButton radioBtn = this.FindName(btnName) as RadioButton;
+                radioBtn.Content = answers[i].Description;
+            }
         }
     }
 }
