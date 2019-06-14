@@ -78,12 +78,12 @@ namespace InteractiveGame
             return true;
         }
 
-        public static Answer[] GetAnswersForQuestion(int questionId)
+        public static List<Answer> GetAnswersForQuestionRnd(int questionId)
         {
             return App.DbManager.Answer.SqlQuery("SELECT a.id, a.question_id AS QuestionId, a.description, a.is_true as isTrue" +
                     " FROM answer a WHERE question_id = @question_id " +
                     " ORDER BY NEWID()", new SqlParameter("@question_id", questionId))
-                    .ToArray();
+                    .ToList();
         }
 
         public static Question[] GetQuestionsForTopic(Topic topic)
