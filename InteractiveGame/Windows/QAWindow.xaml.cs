@@ -47,32 +47,22 @@ namespace InteractiveGame
         {
             TopicTitleLabel.Content = currentTopic.Title.ToString();
 
-            this.questions = GetQuestionsForTopic(currentTopic);
+            this.questions = Items.GetQuestionsForTopic(currentTopic);
 
             QuestionOneLabel.Content = questions[0].Description.ToString();
             QuestionTwoLabel.Content = questions[1].Description.ToString();
             QuestionThreeLabel.Content = questions[2].Description.ToString();
             QuestionFourthLabel.Content = questions[3].Description.ToString();
 
-            Answer[] firstAnswers = GetAnswersForQuestion(questions[0].Id);
+            for (int i = 0; i < 4; i++)
+            {
+                PopulateAnswerBoxes(questions[i], i);
+            }
         }
 
-        private Question[] GetQuestionsForTopic(Topic topic)
-        {
-            return App.DbManager.Question.Where(x => x.TopicId == topic.Id).OrderBy(x => x.Id).ToArray();
-        }
-
-        private void PopulateAnswerBoxes(Question question, Answer[] answers)
+        private void PopulateAnswerBoxes(Question question, int index)
         {
 
-        }
-
-        private Answer[] GetAnswersForQuestion(int questionId)
-        {
-            return App.DbManager.Answer.SqlQuery("SELECT a.id, a.question_id AS QuestionId, a.description, a.is_true as isTrue" +
-                    " FROM answer a WHERE question_id = @question_id " +
-                    " ORDER BY NEWID()", new SqlParameter("@question_id", questionId))
-                    .ToArray();
         }
     }
 }

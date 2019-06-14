@@ -76,5 +76,23 @@ namespace InteractiveGame
 
             return true;
         }
+
+        public static Answer[] GetAnswersForQuestion(int questionId)
+        {
+            return App.DbManager.Answer.SqlQuery("SELECT a.id, a.question_id AS QuestionId, a.description, a.is_true as isTrue" +
+                    " FROM answer a WHERE question_id = @question_id " +
+                    " ORDER BY NEWID()", new SqlParameter("@question_id", questionId))
+                    .ToArray();
+        }
+
+        public static Question[] GetQuestionsForTopic(Topic topic)
+        {
+            return App.DbManager.Question.Where(x => x.TopicId == topic.Id).OrderBy(x => x.Id).ToArray();
+        }
+
+        //public Dictionary<Question, List<Answer>> GetQuestionsWithAnswers(Topic topic)
+        //{
+
+        //}
     }
 }
