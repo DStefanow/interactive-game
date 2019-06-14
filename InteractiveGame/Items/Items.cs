@@ -5,6 +5,7 @@ namespace InteractiveGame
     using System.Linq;
     using System.Data.Entity.Infrastructure;
     using System.Data.SqlClient;
+    using System.Collections.Generic;
 
     public partial class Items : DbContext
     {
@@ -90,9 +91,23 @@ namespace InteractiveGame
             return App.DbManager.Question.Where(x => x.TopicId == topic.Id).OrderBy(x => x.Id).ToArray();
         }
 
-        //public Dictionary<Question, List<Answer>> GetQuestionsWithAnswers(Topic topic)
-        //{
+        public static List<Answer> GetAnswersForQuestion(Question question)
+        {
+            return App.DbManager.Answer.Where(x => x.QuestionId == question.Id).ToList();
+        }
 
-        //}
+        public static Dictionary<Question, List<Answer>> GetQuestionsWithAnswers(Topic topic)
+        {
+            Dictionary<Question, List<Answer>> questionsWithAnswers = new Dictionary<Question, List<Answer>>();
+
+            Question[] questions = GetQuestionsForTopic(topic);
+
+            for (int i = 0; i < 4; i++)
+            {
+                questionsWithAnswers.Add(questions[i], GetAnswersForQuestion(questions[i]));
+            }
+
+            return questionsWithAnswers;
+        }
     }
 }
