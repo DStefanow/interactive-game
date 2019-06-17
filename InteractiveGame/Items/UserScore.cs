@@ -25,5 +25,14 @@ namespace InteractiveGame
         public virtual Category Category { get; set; }
 
         public virtual GameUser GameUser { get; set; }
+
+        public UserScore(GameUser user, Topic topic, ushort points)
+        {
+            this.GameUser = user;
+            this.Category = topic.Category;
+            this.Score = (int)points;
+        }
+
+        public UserScore() { }
     }
 }

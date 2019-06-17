@@ -174,7 +174,7 @@ namespace InteractiveGame
             int fourthPoints = Int32.Parse(this.FourthPoints.Text);
 
             // Fourth Answers
-            string fourthCorrect = this.FourthAnswer.Text;
+            string fourthCorrect = this.FourthAnswer.Text.ToLower();
 
             Question question = new Question(this.topicId, fourthQuestion, fourthPoints);
             App.DbManager.Question.Add(question);

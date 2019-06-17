@@ -21,36 +21,39 @@ namespace InteractiveGame
         Topic currentTopic;
         Question[] questions;
         Dictionary<Question, List<Answer>> questionWithAnswers;
+        List<RadioButton> correctAnswers = new List<RadioButton>();
 
         public QAWindow(GameUser currentUser, Topic currentTopic)
         {
             this.currentUser = currentUser;
             this.currentTopic = currentTopic;
             this.questionWithAnswers = Items.GetQuestionsWithAnswers(currentTopic);
+            this.questions = this.questionWithAnswers.Keys.ToArray();
 
             InitializeComponent();
+
+            TopicTitleLabel.Content = currentTopic.Title.ToString();
             PopulateQuestionsAndAnswers();
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {
-            UserWindow userWindow = new UserWindow(currentUser);
-            this.Close();
-            userWindow.Show();
-            return;
+            RedirectToUserProfile();
         }
 
         private void SubmitClick(object sender, RoutedEventArgs e)
         {
+            ushort sumPoints = SumQuestionRadioPoints();
+            sumPoints += CheckOpenQuestion();
 
+            SavePointsFromTopic(sumPoints);
+
+            MessageBox.Show("Общо точки: " + sumPoints);
+            RedirectToUserProfile();
         }
 
         private void PopulateQuestionsAndAnswers()
         {
-            TopicTitleLabel.Content = currentTopic.Title.ToString();
-
-            this.questions = Items.GetQuestionsForTopic(currentTopic);
-
             QuestionOneLabel.Content = questions[0].Description.ToString();
             QuestionTwoLabel.Content = questions[1].Description.ToString();
             QuestionThreeLabel.Content = questions[2].Description.ToString();
@@ -76,8 +79,62 @@ namespace InteractiveGame
                 answerIndex = indexStr[i];
                 btnName = wpfName + "Answer" + answerIndex;
                 RadioButton radioBtn = this.FindName(btnName) as RadioButton;
+                
                 radioBtn.Content = answers[i].Description;
+
+                if ((bool)answers[i].IsTrue)
+                {
+                    // Save question points
+                    radioBtn.Tag = question.Points;
+                    correctAnswers.Add(radioBtn);
+                }
             }
+        }
+
+        private ushort SumQuestionRadioPoints()
+        {
+            ushort result = 0;
+
+            foreach (RadioButton rnd in correctAnswers)
+            {
+                if ((bool)rnd.IsChecked)
+                {
+                    result += UInt16.Parse(rnd.Tag.ToString());
+                }
+            }
+
+            return result;
+        }
+
+        private ushort CheckOpenQuestion()
+        {
+            ushort points = 0;
+
+            string answer = AnswerFourthBox.Text.ToLower();
+            string correctAnswer = questionWithAnswers.Last().Value.Last().Description;
+
+            if (String.Equals(answer, correctAnswer))
+            {
+                points = (ushort)questionWithAnswers.Last().Key.Points;
+            }
+
+            return points;
+        }
+
+        public void SavePointsFromTopic(ushort points)
+        {
+            UserScore userResult = new UserScore(this.currentUser, this.currentTopic, points);
+            App.DbManager.UserScore.Add(userResult);
+
+            App.DbManager.SaveChanges();
+        }
+
+        private void RedirectToUserProfile()
+        {
+            UserWindow userWindow = new UserWindow(currentUser);
+            this.Close();
+            userWindow.Show();
+            return;
         }
     }
 }
