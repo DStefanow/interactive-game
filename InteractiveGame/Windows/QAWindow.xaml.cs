@@ -123,10 +123,7 @@ namespace InteractiveGame
 
         public void SavePointsFromTopic(ushort points)
         {
-            UserScore userResult = new UserScore(this.currentUser, this.currentTopic, points);
-            App.DbManager.UserScore.Add(userResult);
-
-            App.DbManager.SaveChanges();
+            UserScore.UpdateUserScore(this.currentUser, this.currentTopic, points);
         }
 
         private void RedirectToUserProfile()

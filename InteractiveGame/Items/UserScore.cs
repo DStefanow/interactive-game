@@ -5,6 +5,7 @@ namespace InteractiveGame
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Linq;
 
     [Table("user_score")]
     public partial class UserScore
@@ -34,5 +35,31 @@ namespace InteractiveGame
         }
 
         public UserScore() { }
+
+        public static void UpdateUserScore(GameUser user, Topic topic, ushort points)
+        {
+            List<UserScore> allUserScores = App.DbManager.UserScore.Where(u => u.UserId == user.Id).ToList();
+            List<Category> categoriesForUser = allUserScores.Select(c => c.Category).ToList();
+
+            bool isUpdate = false;
+            foreach (Category cat in categoriesForUser)
+            {
+                if (cat.Id == topic.CategoryId)
+                {
+                    UserScore userScore = allUserScores.First(c => c.CategoryId == topic.CategoryId);
+                    userScore.Score += points;
+                    isUpdate = true;
+                }
+            }
+
+            // First result for that user and that category
+            if (!isUpdate)
+            {
+                UserScore userResult = new UserScore(user, topic, points);
+                App.DbManager.UserScore.Add(userResult);
+            }
+
+            App.DbManager.SaveChanges();
+        }
     }
 }
