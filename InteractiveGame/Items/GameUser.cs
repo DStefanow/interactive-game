@@ -54,6 +54,11 @@ namespace InteractiveGame
             }
         }
 
+        public static GameUser GetUserById(int id)
+        {
+            return App.DbManager.GameUser.FirstOrDefault(u => u.Id == id);
+        }
+
         public static List<string> GetAllUsernames()
         {
             return App.DbManager.GameUser.Where(u => u.IsAdmin == null || u.IsAdmin == false).

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using InteractiveGame.Windows;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace InteractiveGame
@@ -43,11 +44,15 @@ namespace InteractiveGame
             RegisterWindow regWindow = new RegisterWindow();
             this.Close();
             regWindow.Show();
+            return;
         }
 
         private void TopFiveClickEvent(object sender, RoutedEventArgs e)
         {
-
+            TopFiveWindow topFiveWindow = new TopFiveWindow();
+            this.Close();
+            topFiveWindow.Show();
+            return;
         }
 
         public bool IsUserValid(GameUser user, string password)

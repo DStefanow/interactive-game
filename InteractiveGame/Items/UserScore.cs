@@ -34,11 +34,25 @@ namespace InteractiveGame
             this.Score = (int)points;
         }
 
+        public UserScore(int userId, int points)
+        {
+            this.UserId = userId;
+            this.Score = points;
+        }
+
         public UserScore() { }
 
         public static UserScore GetUserScoreData(GameUser user, Category category)
         {
             return App.DbManager.UserScore.FirstOrDefault(x => x.UserId == user.Id && x.CategoryId == category.Id);
+        }
+
+        public static List<UserScore> GetTopFivePlayers()
+        {
+            return App.DbManager.UserScore.SqlQuery("SELECT TOP 5 user_id AS userId, SUM(score) AS Score, 0 as categoryId " +
+                "FROM user_score " +
+                "GROUP BY user_id " +
+                "ORDER BY SUM(score) DESC").ToList();
         }
 
         public static void UpdateUserScore(GameUser user, Topic topic, ushort points)

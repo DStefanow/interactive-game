@@ -87,6 +87,9 @@
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Items\Topic.cs" />
+    <Compile Include="Windows\TopFiveWindow.xaml.cs">
+      <DependentUpon>TopFiveWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\TopicWindow.xaml.cs">
       <DependentUpon>TopicWindow.xaml</DependentUpon>
     </Compile>
@@ -127,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\RegisterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TopFiveWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
