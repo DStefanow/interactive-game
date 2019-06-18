@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -19,9 +17,7 @@ namespace InteractiveGame
 
         public void BackButtonClick(object sender, RoutedEventArgs e)
         {
-            AdminWindow adminWindow = new AdminWindow();
-            this.Close();
-            adminWindow.Show();
+            NavigateToAdminWindow();
             return;
         }
 
@@ -36,158 +32,94 @@ namespace InteractiveGame
                 }
             }
 
-            string selectedName = ((ComboBoxItem)TopicBox.SelectedItem).Name.ToString();
-            int topicId = Int32.Parse(Regex.Match(selectedName, @"\d+").Value);
-            this.topicId = topicId;
+            this.topicId = (int)((ComboBoxItem)TopicBox.SelectedItem).Tag;
 
             // Delete all questions with answer for the given topic (update option)
-            App.DbManager.Question.RemoveRange(
-                App.DbManager.Question.Where(
-                    x => x.TopicId == topicId
-                )
-            );
+            Question.DeleteAllQuestionsByTopicId(this.topicId);
             App.DbManager.SaveChanges();
 
             // Insert Questions and Answers
-            InsertFirstQuestionAnswers();
-            InsertSecondQuestionAnswers();
-            InsertThirdQuestionAnswers();
-            InsertFourthQuestionAnswer();
+            for (int i = 0; i < 4; i++)
+            {
+                InsertQuestionAnswers(i);
+            }
+
+            MessageBox.Show("Въпросите са добавени успешно!");
+            NavigateToAdminWindow();
         }
 
         private void PopulateCategoryBox()
         {
             CategoryBox.Items.Clear();
 
-            List<Category> categories = GetAllCategoriesWithTopics();
+            List<Category> categories = Category.GetAllCategoriesWithTopics();
 
             CategoryBox.SelectedIndex = 0;
             foreach (Category category in categories)
             {
-                CategoryBox.Items.Add(new ComboBoxItem { Content = category.CategoryName, Name = "Id" + category.Id });
+                CategoryBox.Items.Add(new ComboBoxItem { Content = category.CategoryName, Tag = category.Id });
             }
         }
         private void CategoryChange(object sender, SelectionChangedEventArgs e)
         {
             TopicBox.Items.Clear();
 
-            string selectedName = ((ComboBoxItem)CategoryBox.SelectedItem).Name.ToString();
-            int categoryId = Int32.Parse(Regex.Match(selectedName, @"\d+").Value);
+            int categoryId = (int)((ComboBoxItem)CategoryBox.SelectedItem).Tag;
 
-            List<Topic> topicsForCategory = GetAllTopicsForGivenCategory(categoryId);
+            List<Topic> topicsForCategory = Topic.GetAllTopicsForGivenCategory(categoryId);
 
             TopicBox.SelectedIndex = 0;
             foreach (Topic topic in topicsForCategory)
             {
-                TopicBox.Items.Add(new ComboBoxItem { Content = topic.Title, Name = "Id" + topic.Id });
+                TopicBox.Items.Add(new ComboBoxItem { Content = topic.Title, Tag = topic.Id });
             }
         }
 
-        private List<Category> GetAllCategoriesWithTopics()
+        private void InsertQuestionAnswers(int index)
         {
-            return App.DbManager.Category.SqlQuery("SELECT c.id, c.category_name as CategoryName FROM category c " + 
-                    "JOIN topic t " +
-                    "ON c.id = t.category_id " +
-                    "GROUP BY c.id, c.category_name").
-                    ToList();
-        }
+            string[] propNames = new string[] { "First", "Second", "Third", "Fourth" };
+            string wpfName = propNames[index];
 
-        private void InsertFirstQuestionAnswers()
-        {
-            // First Question
-            string firstQuestion = this.FirstQuestion.Text;
-            int firstPoints = Int32.Parse(this.FirstPoints.Text);
+            string questionBoxName = wpfName + "Question";
+            string pointsBoxName = wpfName + "Points";
 
-            // First Answers
-            string firstCorrect = this.FirstCorrect.Text;
-            string firstWrongOne = this.FirstWrongOne.Text;
-            string firstWrongTwo = this.FirstWrongTwo.Text;
-            string firstWrongThree = this.FirstWrongThree.Text;
-
-            Question question = new Question(this.topicId, firstQuestion, firstPoints);
-            App.DbManager.Question.Add(question);
+            // Get question info
+            string question = (this.FindName(questionBoxName) as TextBox).Text;
+            int points = Int32.Parse((this.FindName(pointsBoxName) as ComboBox).Text);
+           
+            // Insert question
+            Question questionObj = new Question(this.topicId, question, points);
+            App.DbManager.Question.Add(questionObj);
             App.DbManager.SaveChanges();
 
-            // Add answers
-            App.DbManager.Answer.Add(new Answer(question.Id, firstCorrect, true));
-            App.DbManager.Answer.Add(new Answer(question.Id, firstWrongOne, false));
-            App.DbManager.Answer.Add(new Answer(question.Id, firstWrongTwo, false));
-            App.DbManager.Answer.Add(new Answer(question.Id, firstWrongThree, false));
+            // Get answers info
+            if (index < 3)
+            {
+                string correct = (this.FindName(wpfName + "Correct") as TextBox).Text;
+                string firstWrong = (this.FindName(wpfName + "WrongOne") as TextBox).Text;
+                string secondWrong = (this.FindName(wpfName + "WrongTwo") as TextBox).Text;
+                string thirdWrong = (this.FindName(wpfName + "WrongThree") as TextBox).Text;
 
-            App.DbManager.SaveChanges();
-        }
-
-        private void InsertSecondQuestionAnswers()
-        {
-            // Second Question
-            string secondQuestion = this.SecondQuestion.Text;
-            int secondPoints = Int32.Parse(this.SecondPoints.Text);
-
-            // Second Answers
-            string secondCorrect = this.SecondCorrect.Text;
-            string secondWrongOne = this.SecondWrongOne.Text;
-            string secondWrongTwo = this.SecondWrongTwo.Text;
-            string secondWrongThree = this.SecondWrongThree.Text;
-
-            Question question = new Question(this.topicId, secondQuestion, secondPoints);
-            App.DbManager.Question.Add(question);
-            App.DbManager.SaveChanges();
-
-            // Add answers
-            App.DbManager.Answer.Add(new Answer(question.Id, secondCorrect, true));
-            App.DbManager.Answer.Add(new Answer(question.Id, secondWrongOne, false));
-            App.DbManager.Answer.Add(new Answer(question.Id, secondWrongTwo, false));
-            App.DbManager.Answer.Add(new Answer(question.Id, secondWrongThree, false));
+                // Insert answers
+                App.DbManager.Answer.Add(new Answer(questionObj.Id, correct, true));
+                App.DbManager.Answer.Add(new Answer(questionObj.Id, firstWrong, false));
+                App.DbManager.Answer.Add(new Answer(questionObj.Id, secondWrong, false));
+                App.DbManager.Answer.Add(new Answer(questionObj.Id, thirdWrong, false));
+            }
+            else
+            {
+                string correct = (this.FindName(wpfName + "Answer") as TextBox).Text;
+                App.DbManager.Answer.Add(new Answer(questionObj.Id, correct, true));
+            }
 
             App.DbManager.SaveChanges();
         }
-
-        private void InsertThirdQuestionAnswers()
+        
+        private void NavigateToAdminWindow()
         {
-            // Third Question
-            string thirdQuestion = this.ThirdQuestion.Text;
-            int thirdPoints = Int32.Parse(this.ThirdPoints.Text);
-
-            // Third Answers
-            string thirdCorrect = this.ThirdCorrect.Text;
-            string thirdWrongOne = this.ThirdWrongOne.Text;
-            string thirdWrongTwo = this.ThirdWrongTwo.Text;
-            string thirdWrongThree = this.ThirdWrongThree.Text;
-
-            Question question = new Question(this.topicId, thirdQuestion, thirdPoints);
-            App.DbManager.Question.Add(question);
-            App.DbManager.SaveChanges();
-
-            // Add answers
-            App.DbManager.Answer.Add(new Answer(question.Id, thirdCorrect, true));
-            App.DbManager.Answer.Add(new Answer(question.Id, thirdWrongOne, false));
-            App.DbManager.Answer.Add(new Answer(question.Id, thirdWrongTwo, false));
-            App.DbManager.Answer.Add(new Answer(question.Id, thirdWrongThree, false));
-
-            App.DbManager.SaveChanges();
-        }
-
-        private void InsertFourthQuestionAnswer()
-        {
-            // Fourth Question
-            string fourthQuestion = this.FourthQuestion.Text;
-            int fourthPoints = Int32.Parse(this.FourthPoints.Text);
-
-            // Fourth Answers
-            string fourthCorrect = this.FourthAnswer.Text.ToLower();
-
-            Question question = new Question(this.topicId, fourthQuestion, fourthPoints);
-            App.DbManager.Question.Add(question);
-            App.DbManager.SaveChanges();
-
-            // Add answer
-            App.DbManager.Answer.Add(new Answer(question.Id, fourthCorrect, true));
-            App.DbManager.SaveChanges();
-        }
-
-        private List<Topic> GetAllTopicsForGivenCategory(int currentCategoryId)
-        {
-            return App.DbManager.Topic.Where(x => x.CategoryId == currentCategoryId).ToList();
+            AdminWindow adminWindow = new AdminWindow();
+            this.Close();
+            adminWindow.Show();
         }
     }
 }

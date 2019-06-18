@@ -5,6 +5,7 @@ namespace InteractiveGame
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Linq;
 
     [Table("question")]
     public partial class Question
@@ -37,5 +38,14 @@ namespace InteractiveGame
         public virtual Topic Topic { get; set; }
 
         public int Points { get; set; }
+
+        public static void DeleteAllQuestionsByTopicId(int topicId)
+        {
+            App.DbManager.Question.RemoveRange(
+                App.DbManager.Question.Where(
+                    x => x.TopicId == topicId
+                )
+            );
+        }
     }
 }

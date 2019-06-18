@@ -41,5 +41,14 @@ namespace InteractiveGame
         {
             return App.DbManager.Category.ToList();
         }
+        
+        public static List<Category> GetAllCategoriesWithTopics()
+        {
+            return App.DbManager.Category.SqlQuery("SELECT c.id, c.category_name as CategoryName FROM category c " +
+                    "JOIN topic t " +
+                    "ON c.id = t.category_id " +
+                    "GROUP BY c.id, c.category_name").
+                    ToList();
+        }
     }
 }

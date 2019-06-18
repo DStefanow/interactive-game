@@ -44,5 +44,10 @@ namespace InteractiveGame
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Question> Question { get; set; }
+
+        public static List<Topic> GetAllTopicsForGivenCategory(int currentCategoryId)
+        {
+            return App.DbManager.Topic.Where(x => x.CategoryId == currentCategoryId).ToList();
+        }
     }
 }
