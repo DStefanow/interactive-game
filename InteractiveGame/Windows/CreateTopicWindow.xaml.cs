@@ -15,7 +15,7 @@ namespace InteractiveGame
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {
-            NavigateToAdminPanel();
+            App.SwitchToWindow(this, "admin");
         }
 
         private void InsertButtonClick(object sender, RoutedEventArgs e)
@@ -40,14 +40,7 @@ namespace InteractiveGame
             AddTopic(categoryId, topicTitle, topicDescription);
             App.DbManager.SaveChanges();
 
-            NavigateToAdminPanel();
-        }
-
-        private void NavigateToAdminPanel()
-        {
-            AdminWindow admWindow = new AdminWindow();
-            this.Close();
-            admWindow.Show();
+            App.SwitchToWindow(this, "admin");
         }
 
         private void PopulateCategoryBox()

@@ -17,7 +17,7 @@ namespace InteractiveGame
 
         public void BackButtonClick(object sender, RoutedEventArgs e)
         {
-            NavigateToAdminWindow();
+            App.SwitchToWindow(this, "admin");
             return;
         }
 
@@ -45,7 +45,7 @@ namespace InteractiveGame
             }
 
             MessageBox.Show("Въпросите са добавени успешно!");
-            NavigateToAdminWindow();
+            App.SwitchToWindow(this, "admin");
         }
 
         private void PopulateCategoryBox()
@@ -113,13 +113,6 @@ namespace InteractiveGame
             }
 
             App.DbManager.SaveChanges();
-        }
-        
-        private void NavigateToAdminWindow()
-        {
-            AdminWindow adminWindow = new AdminWindow();
-            this.Close();
-            adminWindow.Show();
         }
     }
 }

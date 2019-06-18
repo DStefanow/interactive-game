@@ -1,10 +1,8 @@
 namespace InteractiveGame
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
     using System.Linq;
 
     [Table("game_user")]
@@ -43,6 +41,18 @@ namespace InteractiveGame
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserScore> UserScore { get; set; }
+
+        public static GameUser GetUser(string username, string password)
+        {
+            try
+            {
+                return App.DbManager.GameUser.FirstOrDefault(u => u.Username == username);
+            }
+            catch (System.Data.Common.DbException)
+            {
+                return null;
+            }
+        }
 
         public static List<string> GetAllUsernames()
         {

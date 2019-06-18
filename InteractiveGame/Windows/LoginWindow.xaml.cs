@@ -1,18 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace InteractiveGame
 {
@@ -28,7 +15,7 @@ namespace InteractiveGame
             string username = UsernameBox.Text;
             string password = PasswordBox.Password;
 
-            GameUser user = GetUser(username, password);
+            GameUser user = GameUser.GetUser(username, password);
 
             if (!IsUserValid(user, password))
             {
@@ -39,9 +26,7 @@ namespace InteractiveGame
 
             if (isAdmin)
             {
-                AdminWindow admWindow = new AdminWindow();
-                this.Close();
-                admWindow.Show();
+                App.SwitchToWindow(this, "admin");
                 return;
             }
             else
@@ -75,18 +60,6 @@ namespace InteractiveGame
             }
 
             return true;
-        }
-        
-        public GameUser GetUser(string username, string password)
-        {
-            try
-            {
-                return App.DbManager.GameUser.FirstOrDefault(u => u.Username == username);
-            }
-            catch (DbException)
-            {
-                return null;
-            }
         }
     }
 }

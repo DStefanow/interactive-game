@@ -24,7 +24,7 @@ namespace InteractiveGame
 
         private void ExitButtonClick(object sender, RoutedEventArgs e)
         {
-            App.NavigateToLoginWindow(this);
+            App.SwitchToWindow(this, "login");
             return;
         }
 

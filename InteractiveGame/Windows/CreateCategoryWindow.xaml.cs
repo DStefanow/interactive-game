@@ -1,7 +1,5 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace InteractiveGame
 {
@@ -16,7 +14,7 @@ namespace InteractiveGame
 
         public void BackButtonClick(object sender, RoutedEventArgs e)
         {
-            NavigateToAdminPanel();
+            App.SwitchToWindow(this, "admin");
         }
 
         public void InsertButtonClick(object sender, RoutedEventArgs e)
@@ -40,14 +38,7 @@ namespace InteractiveGame
             App.DbManager.SaveChanges();
 
             MessageBox.Show("Категория: " + category + " добавена към списъка с категории.");
-            NavigateToAdminPanel();
-        }
-
-        public void NavigateToAdminPanel()
-        {
-            AdminWindow adminWindow = new AdminWindow();
-            this.Close();
-            adminWindow.Show();
+            App.SwitchToWindow(this, "admin");
         }
     }
 }

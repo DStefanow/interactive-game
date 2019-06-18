@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Media;
 
@@ -29,11 +28,19 @@ namespace InteractiveGame
             }
         }
 
-        public static void NavigateToLoginWindow(Window curWindow)
+        public static void SwitchToWindow(Window curWindow, string newWindowName)
         {
-            LoginWindow logWindow = new LoginWindow();
+            Window newWindow = null;
+
+            switch (newWindowName)
+            {
+                case "admin": newWindow = new AdminWindow(); break;
+                case "login": newWindow = new LoginWindow(); break;
+            }
+
             curWindow.Close();
-            logWindow.Show();
+            newWindow.Show();
+            return;
         }
     }
 }
