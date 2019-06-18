@@ -1,10 +1,9 @@
 namespace InteractiveGame
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+    using System.Linq;
 
     [Table("category")]
     public partial class Category
@@ -37,5 +36,10 @@ namespace InteractiveGame
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Topic> Topic { get; set; }
+
+        public static List<Category> GetAllCategories()
+        {
+            return App.DbManager.Category.ToList();
+        }
     }
 }

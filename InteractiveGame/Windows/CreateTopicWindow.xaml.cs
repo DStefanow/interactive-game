@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -22,25 +20,25 @@ namespace InteractiveGame
 
         private void InsertButtonClick(object sender, RoutedEventArgs e)
         {
-            string selectedName = ((ComboBoxItem)CategoryBox.SelectedItem).Name.ToString();
-            int categoryId = Int32.Parse(Regex.Match(selectedName, @"\d+").Value);
+            int categoryId = (int)((ComboBoxItem)CategoryBox.SelectedItem).Tag;
 
             string topicTitle = TitleBox.Text;
             string topicDescription = TopicText.Text;
-
+            
             if (topicTitle == "" || topicDescription == "")
             {
                 MessageBox.Show("Моля добавете заглавие и описание на темата.");
                 return;
             }
 
-            AddTopic(categoryId, topicTitle, topicDescription);
-
-            if (!Items.SaveChangesUniqueHandler())
+            if (App.DbManager.Topic.Any(t => t.Title == topicTitle))
             {
-                MessageBox.Show("Тема със заглавие: " + topicTitle + " вече е създадена!");
+                MessageBox.Show("Тема със заглавие: " + topicTitle + " за дадената категория вече е създадена!");
                 return;
             }
+
+            AddTopic(categoryId, topicTitle, topicDescription);
+            App.DbManager.SaveChanges();
 
             NavigateToAdminPanel();
         }
@@ -56,18 +54,13 @@ namespace InteractiveGame
         {
             CategoryBox.Items.Clear();
 
-            List<Category> categories = GetAllCategories();
+            List<Category> categories = Category.GetAllCategories();
 
             CategoryBox.SelectedIndex = 0;
             foreach (Category category in categories)
             {
-                CategoryBox.Items.Add(new ComboBoxItem { Content = category.CategoryName, Name = "Id" + category.Id });
+                CategoryBox.Items.Add(new ComboBoxItem { Content = category.CategoryName, Tag = category.Id });
             }
-        }
-
-        private List<Category> GetAllCategories()
-        {
-            return App.DbManager.Category.Select(x => x).ToList();
         }
 
         private void AddTopic(int categoryId, string title, string description)
