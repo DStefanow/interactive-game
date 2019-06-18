@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -28,16 +29,15 @@ namespace InteractiveGame
                 return;
             }
 
-            Category newCategory = new Category(category);
-            App.DbManager.Category.Add(newCategory);
-
-            CategoryNameBox.Clear();
-
-            if (!Items.SaveChangesUniqueHandler())
+            if (App.DbManager.Category.Any(c => c.CategoryName == category))
             {
                 MessageBox.Show("Категория " + category + " вече същестува!");
                 return;
             }
+
+            Category newCategory = new Category(category);
+            App.DbManager.Category.Add(newCategory);
+            App.DbManager.SaveChanges();
 
             MessageBox.Show("Категория: " + category + " добавена към списъка с категории.");
             NavigateToAdminPanel();
