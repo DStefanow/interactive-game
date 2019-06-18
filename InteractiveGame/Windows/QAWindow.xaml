@@ -15,7 +15,7 @@
         <Label Content="(( Question One ))"
                FontSize="15" Foreground="White" FontFamily="Arial"
                HorizontalContentAlignment="Left" VerticalContentAlignment="Top" HorizontalAlignment="Center"
-               Margin="40,80,450,0" VerticalAlignment="Top" Width="200" Height="40" Name="QuestionOneLabel"
+               Margin="41,80,52,0" VerticalAlignment="Top" Width="599" Height="40" Name="QuestionOneLabel"
         />
         <RadioButton GroupName="FirstAnswer" Name="FirstAnswerFirst" Margin="44,120,498,324" Height="25" Width="150">
             ((First answer one))
@@ -32,7 +32,7 @@
         <Label Content="(( Question Two ))"
             FontSize="15" Foreground="White" FontFamily="Arial"
             HorizontalContentAlignment="Left" VerticalContentAlignment="Top" HorizontalAlignment="Center"
-            Margin="40,155,450,0" VerticalAlignment="Top" Width="200" Height="40" Name="QuestionTwoLabel"
+            Margin="41,155,52,0" VerticalAlignment="Top" Width="599" Height="40" Name="QuestionTwoLabel"
         />
         <RadioButton GroupName="SecondAnswer" Name="SecondAnswerFirst" Margin="42,193,500,251" Height="25" Width="150" Content="((First answer two))"/>
         <RadioButton GroupName="SecondAnswer" Name="SecondAnswerSecond" Margin="197,193,345,251" Height="25" Width="150" Content="((Second answer two))"/>
@@ -41,7 +41,7 @@
         <Label Content="(( Question Three ))"
             FontSize="15" Foreground="White" FontFamily="Arial"
             HorizontalContentAlignment="Left" VerticalContentAlignment="Top" HorizontalAlignment="Center"
-            Margin="40,230,450,0" VerticalAlignment="Top" Width="200" Height="40" Name="QuestionThreeLabel"
+            Margin="41,230,52,0" VerticalAlignment="Top" Width="599" Height="40" Name="QuestionThreeLabel"
         />
         <RadioButton GroupName="ThirdAnswer" Name="ThirdAnswerFirst" Margin="42,269,500,175" Height="25" Width="150" Content="((First answer three))"/>
         <RadioButton GroupName="ThirdAnswer" Name="ThirdAnswerSecond" Margin="197,269,345,175" Height="25" Width="150" Content="((Second answer three))"/>
@@ -50,7 +50,7 @@
         <Label Content="(( Question Three ))"
             FontSize="15" Foreground="White" FontFamily="Arial"
             HorizontalContentAlignment="Left" VerticalContentAlignment="Top" HorizontalAlignment="Center"
-            Margin="40,310,450,0" VerticalAlignment="Top" Width="200" Height="40" Name="QuestionFourthLabel"
+            Margin="41,310,52,0" VerticalAlignment="Top" Width="599" Height="40" Name="QuestionFourthLabel"
         />
         <TextBox HorizontalAlignment="Left" Height="23" Margin="40,350,0,0" Name="AnswerFourthBox"
                  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160"
