@@ -2,8 +2,10 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:InteractiveGame"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              StartupUri="Windows/LoginWindow.xaml">
     <Application.Resources>
-         
+        <sys:Double x:Key="ButtonHeight">22</sys:Double>
+        <sys:String x:Key="BackgroundColor">"#40c9d1"</sys:String>
     </Application.Resources>
 </Application>
