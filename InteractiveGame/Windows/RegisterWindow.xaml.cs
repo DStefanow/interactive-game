@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -19,7 +20,7 @@ namespace InteractiveGame
 
         private void BackClickEvent(object sender, RoutedEventArgs e)
         {
-            NavigateToLoginWindow();
+            App.SwitchToWindow(this, "login");
         }
 
         private void RegisterClickEvent(object sender, RoutedEventArgs e)
@@ -33,23 +34,16 @@ namespace InteractiveGame
                 return;
             }
 
-            GameUser newUser = new GameUser(username, password, fullName);
-            App.DbManager.GameUser.Add(newUser);
-
-            if (!Items.SaveChangesUniqueHandler())
+            if (App.DbManager.GameUser.Any(u => u.Username == username))
             {
                 MessageBox.Show("Потребителско име: " + username + " вече същестува!");
                 return;
             }
+            
+            App.DbManager.GameUser.Add(new GameUser(username, password, fullName));
+            App.DbManager.SaveChanges();
 
-            NavigateToLoginWindow();
-        }
-
-        public void NavigateToLoginWindow()
-        {
-            LoginWindow logWindow = new LoginWindow();
-            this.Close();
-            logWindow.Show();
+            App.SwitchToWindow(this, "login");
         }
 
         private bool IsValidInputParams(string username, string password, string fullName)
