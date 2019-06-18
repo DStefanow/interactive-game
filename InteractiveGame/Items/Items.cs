@@ -1,11 +1,6 @@
 namespace InteractiveGame
 {
-    using System;
     using System.Data.Entity;
-    using System.Linq;
-    using System.Data.Entity.Infrastructure;
-    using System.Data.SqlClient;
-    using System.Collections.Generic;
 
     public partial class Items : DbContext
     {
@@ -57,57 +52,6 @@ namespace InteractiveGame
                 .WithRequired(e => e.Topic)
                 .HasForeignKey(e => e.TopicId)
                 .WillCascadeOnDelete(false);
-        }
-
-        public static bool SaveChangesUniqueHandler()
-        {
-            try
-            {
-                App.DbManager.SaveChanges();
-            }
-            catch (DbUpdateException ex)
-            {
-                if (ex.InnerException?.InnerException is SqlException sqlEx &&
-                    (sqlEx.Number == 2601 || sqlEx.Number == 2627))
-                {
-                    App.DbManager = new Items();
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-        public static List<Answer> GetAnswersForQuestionRnd(int questionId)
-        {
-            return App.DbManager.Answer.SqlQuery("SELECT a.id, a.question_id AS QuestionId, a.description, a.is_true as isTrue" +
-                    " FROM answer a WHERE question_id = @question_id " +
-                    " ORDER BY NEWID()", new SqlParameter("@question_id", questionId))
-                    .ToList();
-        }
-
-        public static Question[] GetQuestionsForTopic(Topic topic)
-        {
-            return App.DbManager.Question.Where(x => x.TopicId == topic.Id).OrderBy(x => x.Id).ToArray();
-        }
-
-        public static List<Answer> GetAnswersForQuestion(Question question)
-        {
-            return App.DbManager.Answer.Where(x => x.QuestionId == question.Id).ToList();
-        }
-
-        public static Dictionary<Question, List<Answer>> GetQuestionsWithAnswers(Topic topic)
-        {
-            Dictionary<Question, List<Answer>> questionsWithAnswers = new Dictionary<Question, List<Answer>>();
-
-            Question[] questions = GetQuestionsForTopic(topic);
-
-            for (int i = 0; i < 4; i++)
-            {
-                questionsWithAnswers.Add(questions[i], GetAnswersForQuestion(questions[i]));
-            }
-
-            return questionsWithAnswers;
         }
     }
 }

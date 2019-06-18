@@ -1,17 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace InteractiveGame
 {
@@ -27,7 +18,7 @@ namespace InteractiveGame
         {
             this.currentUser = currentUser;
             this.currentTopic = currentTopic;
-            this.questionWithAnswers = Items.GetQuestionsWithAnswers(currentTopic);
+            this.questionWithAnswers = Answer.GetQuestionsWithAnswers(currentTopic);
             this.questions = this.questionWithAnswers.Keys.ToArray();
 
             InitializeComponent();
@@ -70,7 +61,7 @@ namespace InteractiveGame
             string[] indexStr = new string[] { "First", "Second", "Third", "Fourth" };
             string wpfName = indexStr[index];
 
-            List<Answer> answers = Items.GetAnswersForQuestionRnd(question.Id);
+            List<Answer> answers = Answer.GetAnswersForQuestionRnd(question.Id);
 
             string answerIndex;
             string btnName;

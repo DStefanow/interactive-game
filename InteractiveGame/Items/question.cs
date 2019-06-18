@@ -52,5 +52,10 @@ namespace InteractiveGame
         {
             return App.DbManager.Question.Count(x => x.TopicId == topic.Id) == 4;
         }
+
+        public static Question[] GetQuestionsForTopic(Topic topic)
+        {
+            return App.DbManager.Question.Where(x => x.TopicId == topic.Id).OrderBy(x => x.Id).ToArray();
+        }
     }
 }
