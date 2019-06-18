@@ -24,9 +24,8 @@ namespace InteractiveGame
 
         private void ExitButtonClick(object sender, RoutedEventArgs e)
         {
-            LoginWindow logWindow = new LoginWindow();
-            this.Close();
-            logWindow.Show();
+            App.NavigateToLoginWindow(this);
+            return;
         }
 
         private void StartTopicClick(object sender, RoutedEventArgs e)

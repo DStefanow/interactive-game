@@ -28,5 +28,12 @@ namespace InteractiveGame
                 }
             }
         }
+
+        public static void NavigateToLoginWindow(Window curWindow)
+        {
+            LoginWindow logWindow = new LoginWindow();
+            curWindow.Close();
+            logWindow.Show();
+        }
     }
 }

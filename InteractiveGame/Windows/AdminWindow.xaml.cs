@@ -18,7 +18,7 @@ namespace InteractiveGame
         {
             UserBox.Items.Clear();
 
-            List<string> usernames = GetAllUsernames();
+            List<string> usernames = GameUser.GetAllUsernames();
 
             UserBox.SelectedIndex = 0;
             foreach (string username in usernames)
@@ -32,6 +32,7 @@ namespace InteractiveGame
             CreateCategoryWindow createCategoryWindow = new CreateCategoryWindow();
             this.Close();
             createCategoryWindow.Show();
+            return;
         }
 
         public void InsertTopicClick(object sender, RoutedEventArgs e)
@@ -39,6 +40,7 @@ namespace InteractiveGame
             CreateTopicWindow createTopicWindow = new CreateTopicWindow();
             this.Close();
             createTopicWindow.Show();
+            return;
         }
 
         public void InsertQAClick(object sender, RoutedEventArgs e)
@@ -46,33 +48,19 @@ namespace InteractiveGame
             CreateQAWindow createQaWindow = new CreateQAWindow();
             this.Close();
             createQaWindow.Show();
+            return;
         }
 
         public void ExitButtonClick(object sender, RoutedEventArgs e)
         {
-            LoginWindow logWindow = new LoginWindow();
-            this.Close();
-            logWindow.Show();
+            App.NavigateToLoginWindow(this);
+            return;
         }
 
         public void DeleteUserClick(object sender, RoutedEventArgs e)
         {
-            DeleteByUsername(((ComboBoxItem)UserBox.SelectedItem).Content.ToString());
+            GameUser.DeleteByUsername(((ComboBoxItem)UserBox.SelectedItem).Content.ToString());
             PopulateUserBox();
-        }
-
-        public List<string> GetAllUsernames()
-        {
-            return App.DbManager.GameUser.Where(u => u.IsAdmin == null || u.IsAdmin == false).
-                Select(u => u.Username).
-                ToList();
-        }
-
-        public void DeleteByUsername(string username)
-        {
-            GameUser user = App.DbManager.GameUser.FirstOrDefault(u => u.Username == username);
-            App.DbManager.GameUser.Remove(user);
-            App.DbManager.SaveChanges();
         }
     }
 }

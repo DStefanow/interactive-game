@@ -20,9 +20,7 @@ namespace InteractiveGame
             UserScore = new HashSet<UserScore>();
         }
 
-        public GameUser()
-        {
-        }
+        public GameUser(){ }
 
         public int Id { get; set; }
 
@@ -45,5 +43,19 @@ namespace InteractiveGame
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserScore> UserScore { get; set; }
+
+        public static List<string> GetAllUsernames()
+        {
+            return App.DbManager.GameUser.Where(u => u.IsAdmin == null || u.IsAdmin == false).
+                Select(u => u.Username).
+                ToList();
+        }
+
+        public static void DeleteByUsername(string username)
+        {
+            GameUser user = App.DbManager.GameUser.FirstOrDefault(u => u.Username == username);
+            App.DbManager.GameUser.Remove(user);
+            App.DbManager.SaveChanges();
+        }
     }
 }
