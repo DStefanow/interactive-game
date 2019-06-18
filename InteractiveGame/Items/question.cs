@@ -47,5 +47,10 @@ namespace InteractiveGame
                 )
             );
         }
+
+        public static bool HasQuestionsForTopic(Topic topic)
+        {
+            return App.DbManager.Question.Count(x => x.TopicId == topic.Id) == 4;
+        }
     }
 }

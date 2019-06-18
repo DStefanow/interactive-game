@@ -1,22 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace InteractiveGame
 {
-    /// <summary>
-    /// Interaction logic for TopicWindow.xaml
-    /// </summary>
     public partial class TopicWindow : Window
     {
         GameUser currentUser;
@@ -41,7 +27,7 @@ namespace InteractiveGame
 
         private void StartQASession(object sender, RoutedEventArgs e)
         {
-            if (!HasQuestionsForTopic(currentTopic))
+            if (!Question.HasQuestionsForTopic(currentTopic))
             {
                 MessageBox.Show("Липсват въпроси за тема: " + currentTopic.Title);
                 return;
@@ -57,11 +43,6 @@ namespace InteractiveGame
         {
             TopicTitleLabel.Content = currentTopic.Title;
             TopicContentLabel.Text = currentTopic.Description;
-        }
-
-        private bool HasQuestionsForTopic(Topic topic)
-        {
-            return App.DbManager.Question.Count(x => x.TopicId == topic.Id) == 4;
         }
     }
 }
