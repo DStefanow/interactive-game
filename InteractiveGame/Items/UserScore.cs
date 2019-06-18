@@ -36,6 +36,11 @@ namespace InteractiveGame
 
         public UserScore() { }
 
+        public static UserScore GetUserScoreData(GameUser user, Category category)
+        {
+            return App.DbManager.UserScore.FirstOrDefault(x => x.UserId == user.Id && x.CategoryId == category.Id);
+        }
+
         public static void UpdateUserScore(GameUser user, Topic topic, ushort points)
         {
             List<UserScore> allUserScores = App.DbManager.UserScore.Where(u => u.UserId == user.Id).ToList();

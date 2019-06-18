@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -29,9 +26,8 @@ namespace InteractiveGame
         }
 
         private void StartTopicClick(object sender, RoutedEventArgs e)
-        {
-            string selectedName = ((ComboBoxItem)TopicBox.SelectedItem).Name.ToString();
-            int topicId = Int32.Parse(Regex.Match(selectedName, @"\d+").Value);
+        { 
+            int topicId = (int)((ComboBoxItem)TopicBox.SelectedItem).Tag;
 
             TopicWindow topicWindow = new TopicWindow(topicId, currentUser);
             this.Close();
@@ -42,16 +38,15 @@ namespace InteractiveGame
         private void CategoryChange(object sender, SelectionChangedEventArgs e)
         {
             TopicBox.Items.Clear();
-
-            string selectedName = ((ComboBoxItem)CategoryBox.SelectedItem).Name.ToString();
-            int categoryId = Int32.Parse(Regex.Match(selectedName, @"\d+").Value);
             
-            List<Topic> topicsForCategory = GetAllTopicsForGivenCategory(categoryId);
+            int categoryId = (int)((ComboBoxItem)CategoryBox.SelectedItem).Tag;
+
+            List<Topic> topicsForCategory = Topic.GetAllTopicsForGivenCategory(categoryId);
 
             TopicBox.SelectedIndex = 0;
             foreach (Topic topic in topicsForCategory)
             {
-                TopicBox.Items.Add(new ComboBoxItem { Content = topic.Title, Name = "Id" + topic.Id });
+                TopicBox.Items.Add(new ComboBoxItem { Content = topic.Title, Tag = topic.Id });
             }
         }
 
@@ -65,39 +60,24 @@ namespace InteractiveGame
         {
             CategoryBox.Items.Clear();
 
-            List<Category> categories = GetAllCategoriesWithTopics();
+            List<Category> categories = Category.GetAllCategoriesWithTopics();
 
             CategoryBox.SelectedIndex = 0;
             foreach (Category category in categories)
             {
-                CategoryBox.Items.Add(new ComboBoxItem { Content = category.CategoryName, Name = "Id" + category.Id });
+                CategoryBox.Items.Add(new ComboBoxItem { Content = category.CategoryName, Tag = category.Id });
             }
-        }
-
-        private List<Category> GetAllCategoriesWithTopics()
-        {
-            return App.DbManager.Category.SqlQuery("SELECT c.id, c.category_name as CategoryName FROM category c " +
-                    "JOIN topic t " +
-                    "ON c.id = t.category_id " +
-                    "GROUP BY c.id, c.category_name").
-                    ToList();
-        }
-
-        private List<Topic> GetAllTopicsForGivenCategory(int currentCategoryId)
-        {
-            return App.DbManager.Topic.Where(x => x.CategoryId == currentCategoryId).ToList();
         }
 
         private void PopulateUserScoreBox(int userId)
         {
-            List<Category> allCategories = App.DbManager.Category.Select(x => x).ToList();
+            List<Category> allCategories = Category.GetAllCategories();
 
             int currentScore = 0;
             string resultData;
             foreach (Category cat in allCategories)
             {
-                UserScore currentResultByCategory = App.DbManager.UserScore.
-                    FirstOrDefault(x => x.UserId == userId && x.CategoryId == cat.Id);
+                UserScore currentResultByCategory = UserScore.GetUserScoreData(this.currentUser, cat);
 
                 if (currentResultByCategory == null ||
                      currentResultByCategory.Score == 0 ||
@@ -111,14 +91,11 @@ namespace InteractiveGame
                 }
 
                 resultData = cat.CategoryName +  " - " + currentScore;
-
-                ListBoxItem item = new ListBoxItem
-                {
+                
+                PointOnCategory.Items.Add(new ListBoxItem {
                     Name = "Id" + cat.Id,
                     Content = resultData
-                };
-
-                PointOnCategory.Items.Add(item);
+                });
             }
         }
     }
