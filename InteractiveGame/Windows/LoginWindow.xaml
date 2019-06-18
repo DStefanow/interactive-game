@@ -41,5 +41,10 @@
                 FontSize="15" FontFamily="Arial" Foreground="Black" Background="White"
                 Name="RegisterButton" Click="RegisterClickEvent"
         />
+        <Button Content="Топ 5" HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="130,290,0,0" Click="TopFiveClickEvent" Name="TopFiveButton"
+            FontSize="15" FontFamily="Arial" Foreground="White" Background="#a142f4"
+            Width="120" Height="22"
+        />
     </Grid>
 </Window>

@@ -45,6 +45,11 @@ namespace InteractiveGame
             regWindow.Show();
         }
 
+        private void TopFiveClickEvent(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         public bool IsUserValid(GameUser user, string password)
         {
             if (user == null)
