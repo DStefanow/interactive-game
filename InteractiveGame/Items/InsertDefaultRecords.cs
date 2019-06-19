@@ -14,6 +14,8 @@ namespace InteractiveGame
             AddDefaultUsers();
             AddDefaultCategories();
             AddDefaultTopicsForHistory();
+            AddDefaultTopicsForGeography();
+            AddDefaultTopicsForMath();
         }
 
         // Add some users
